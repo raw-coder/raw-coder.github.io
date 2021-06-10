@@ -1,16 +1,15 @@
 ---
 layout: post
-title:  "[리뷰] 파이썬으로 배우는 포트폴리오"
-summary: "파이썬으로 배우는 포트폴리오"
+title:  '[리뷰] 파이썬으로 배우는 포트폴리오'
+summary: 파이썬으로 배우는 포트폴리오
 author: raw-coder
-date: '2021-06-10 00:00:00 +0900'
+date: 2021-06-10 00:00:00 +0900
 category: books, phython, investment
 thumbnail: /assets/img/portfolio-with-python.jpg
 keywords: books, phython, investment
 permalink: /blog/review-portfolio-with-phython/
 usemathjax: false
 ---
-
 # 파이썬으로 배우는 포트폴리오 리뷰
 
 ### 들어가며...
@@ -52,6 +51,6 @@ usemathjax: false
 
 ### 정리하면...
 
-포트폴리오 이론을 배워서, 감이나 소문을 듣고 투자하는 것이 아니라 자산배분하고 이론에 입각해 투자하고 싶은 개발자들은 읽어보면 좋을 책인것 같습니다.
+포트폴리오 이론을 배워서, 감이나 소문을 듣고 투자하는 것이 아니라 이론을 기반으로 자산배분을 하고 투자하고 싶은 개발자들은 읽어보면 좋을 책인것 같습니다.
 
 개인적으로는 포트폴리오 관리 앱을 개발하는데 많은 도움이 될 것으로 보입니다.
