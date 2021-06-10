@@ -1,0 +1,50 @@
+I"E<h2 id="es6에-추가된-generator-함수에-대해-간단히-정리합니다">ES6에 추가된 Generator 함수에 대해 간단히 정리합니다</h2>
+
+<ul>
+  <li><strong>function *</strong> 키워드로 정의</li>
+  <li><strong>yield</strong> 구문을 반드시 포함하여햐 함
+    <ul>
+      <li>return 구문과 유사하게 값을 반환</li>
+      <li>return 구문과 다른 점은 return은 한번만 값을 반환하지만, yield 구문은 여러번 실행됨</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">// gernerator 함수 counter 정의</span>
+<span class="kd">function</span> <span class="o">*</span> <span class="nx">counter</span><span class="p">()</span> <span class="p">{</span>
+  <span class="k">yield</span> <span class="mi">1</span>
+  <span class="k">yield</span> <span class="mi">2</span>
+  <span class="k">yield</span> <span class="mi">3</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">g</span> <span class="o">=</span> <span class="nx">counter</span><span class="p">()</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span>
+<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">g</span><span class="p">.</span><span class="nx">next</span><span class="p">())</span>
+</code></pre></div></div>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="go">{ value: 1, done: false }
+{ value: 2, done: false }
+{ value: 3, done: false }
+{ value: undefined, done: true }
+</span></code></pre></div></div>
+
+<p>아래 예제는 gernerator를 활용한 피보나치 함수 구현 예제 코드 입니다</p>
+
+<div class="language-javascript highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">function</span> <span class="o">*</span> <span class="nx">getFibonacci</span><span class="p">()</span> <span class="p">{</span>
+  <span class="kd">let</span> <span class="nx">a</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="kd">let</span> <span class="nx">b</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="k">while</span> <span class="p">(</span><span class="kc">true</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">[</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="nx">b</span><span class="p">,</span> <span class="nx">a</span> <span class="o">+</span> <span class="nx">b</span><span class="p">]</span>
+    <span class="k">yield</span> <span class="nx">a</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="kd">const</span> <span class="nx">fib</span> <span class="o">=</span> <span class="nx">getFibonacci</span><span class="p">()</span>
+<span class="k">for</span><span class="p">(</span><span class="kd">const</span> <span class="nx">num</span> <span class="k">of</span> <span class="nx">fib</span><span class="p">)</span> <span class="p">{</span>
+  <span class="k">if</span> <span class="p">(</span><span class="nx">num</span> <span class="o">&gt;</span> <span class="mi">50</span><span class="p">)</span> <span class="k">break</span>
+  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">num</span><span class="p">)</span>
+<span class="p">}</span>
+</code></pre></div></div>
+:ET

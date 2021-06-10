@@ -1,0 +1,8 @@
+I"�<h2 id="cron-표현식">Cron 표현식</h2>
+<p>Batch Job 개발에 필요했던 Cron 표현식 간단히 정리합니다.</p>
+
+<div class="language-terminal highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="gp">* * * * *       #</span><span class="w"> </span>분<span class="o">(</span>0-59<span class="o">)</span> 시<span class="o">(</span>0-23<span class="o">)</span> 일<span class="o">(</span>1-31<span class="o">)</span> 월<span class="o">(</span>1-12<span class="o">)</span> 요일<span class="o">(</span>0-6<span class="o">)</span>
+<span class="gp">30 6 * * *      #</span><span class="w"> </span>매일 6시 30분
+<span class="gp">*/10 * * * *    #</span><span class="w"> </span>매 10분 마다
+</code></pre></div></div>
+:ET

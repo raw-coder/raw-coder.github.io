@@ -1,0 +1,62 @@
+I"�<h3 id="rabbitmq-docker로-실행하기">rabbitMQ docker로 실행하기</h3>
+
+<blockquote>
+  <p>docker 설치</p>
+</blockquote>
+
+<p>기존 버전의 docker 설치되어 있는 경우 우선 삭제합니다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt-get remove docker docker-engine docker.io
+</code></pre></div></div>
+
+<p>sudo 명령으로 실행하지 않기 위해 권한 등록 후 docker를 실행합니다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>usermod <span class="nt">-aG</span> docker username
+<span class="nb">sudo </span>service docker restart
+</code></pre></div></div>
+<blockquote>
+  <p>rabbitMQ 설치</p>
+</blockquote>
+
+<p>rabitmq docker image 를 검색합니다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>docker search rabbitmq
+</code></pre></div></div>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>NAME                                           DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED
+rabbitmq                                       RabbitMQ is an open <span class="nb">source </span>multi-protocol me…   1855                <span class="o">[</span>OK]
+tutum/rabbitmq                                 Base docker image to run a RabbitMQ server      15
+frodenas/rabbitmq                              A Docker Image <span class="k">for </span>RabbitMQ                     12                                      <span class="o">[</span>OK]
+bitnami/rabbitmq                               Bitnami Docker Image <span class="k">for </span>RabbitMQ               9                                       <span class="o">[</span>OK]
+sysrun/rpi-rabbitmq                            RabbitMQ Container <span class="k">for </span>the Raspberry Pi 2 <span class="o">(</span>b…   6
+kbudde/rabbitmq-exporter                       rabbitmq_exporter <span class="k">for </span>prometheus                6                                       <span class="o">[</span>OK]
+gonkulatorlabs/rabbitmq                        DEPRECATED: See maryville/rabbitmq              5                                       <span class="o">[</span>OK]
+aweber/rabbitmq-autocluster                    RabbitMQ with the Autocluster Plugin            5
+arm32v7/rabbitmq                               RabbitMQ is an open <span class="nb">source </span>multi-protocol me…   4
+cyrilix/rabbitmq-mqtt                          RabbitMQ MQTT Adapter                           4                                       <span class="o">[</span>OK]
+mikaelhg/docker-rabbitmq                       RabbitMQ <span class="k">in </span>Docker.                             3                                       <span class="o">[</span>OK]
+gavinmroy/alpine-rabbitmq-autocluster          Minimal RabbitMQ image with the autocluster …   2
+pivotalrabbitmq/rabbitmq-autocluster           RabbitMQ with the rabbitmq-autocluster plugi…   2
+luiscoms/openshift-rabbitmq                    RabbitMQ docker image to use on Openshift ba…   2                                       <span class="o">[</span>OK]
+smebberson/alpine-rabbitmq                     A Docker image <span class="k">for </span>running RabbitMQ on Alpin…   2                                       <span class="o">[</span>OK]
+henrylv206/rabbitmq-autocluster                RabbitMQ Cluster                                1                                       <span class="o">[</span>OK]
+authentise/rabbitmq                            A RabbitMQ image that will run a bash script…   1                                       <span class="o">[</span>OK]
+cvtjnii/rabbitmq                                                                               1
+pdffiller/rabbitmq                             Rabbitmq 3.7.3 with delayed_message plugin,c…   0
+ekesken/rabbitmq                               docker image <span class="k">for </span>rabbitmq that is configurab…   0                                       <span class="o">[</span>OK]
+pivotalrabbitmq/rabbitmq-server-buildenv       Image used to build and <span class="nb">test </span>RabbitMQ server…   0
+hoist/rabbitmq-cluster                         Hoist<span class="s1">'s RabbitMQ Cluster Image                  0                                       [OK]
+cflondonservices/london-services-ci-rabbitmq                                                   0
+callforamerica/rabbitmq                        RabbitMQ (stable) w/ Kubernetes fixes &amp; mani…   0                                       [OK]
+newsdev/rabbitmq                               rabbitmq:olympics Extends official rabbitmq …   0                                       [OK]
+</span></code></pre></div></div>
+
+<p>간단한 설정과 함께 rabbitmq 를 실행합니다.
+username, password, port 등을 설정합니다. management 페이지의  port는 8088로 설정하였습니다.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>docker run <span class="nt">-d</span> <span class="nt">--name</span> rabbitmq <span class="nt">-p</span> 5672:5672 <span class="nt">-p</span> 8088:15672 <span class="nt">--restart</span><span class="o">=</span>unless-stopped <span class="nt">-e</span> <span class="nv">RABBITMQ_DEFAULT_USER</span><span class="o">=</span>guest <span class="nt">-e</span> <span class="nv">RABBITMQ_DEFAULT_PASS</span><span class="o">=</span>guest rabbitmq:management
+</code></pre></div></div>
+
+<p><img src="/assets/img/rabbitMQ_management.png" alt="rabbitMQ_management_page" /></p>
+
+:ET

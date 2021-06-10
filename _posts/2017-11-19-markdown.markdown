@@ -1,0 +1,74 @@
+---
+layout: post
+current: post
+thumbnail: assets/img/markdown.png
+navigation: True
+title: Markdown 정리
+date: 2017-11-19
+tags: [etc]
+class: post-template
+subclass: 'post tag-etc'
+author: raw-coder
+published: true
+---
+
+## Markdown
+자주 사용하는 Markdown 문법을 정리합니다.
+
+> Headers
+
+헤더는 # 뒤에 문자열을 붙여 나타냅니다. # 갯수에 따라 크기가 결정됩니다. HTML h1 ~ h6 태그와 대응됩니다. 
+# Header One : # Header One  
+## Header Two : ## Header Two  
+### Header Three : ### Header Three  
+#### Header Four : #### Header Four  
+##### Header Five : ##### Header Five  
+###### Header Six : ###### Header Six  
+---
+
+> Link
+
+[Link](URL) : \[Link\]\(URL\)    
+
+> Images
+
+![alt text](http://octodex.github.com/images/octdrey-catburn.jpg)
+\!\[alt text\]\(URL\)
+
+> Blockquotes
+
+\> Text
+
+> Unordered List
+
+* Item A : \* Item A  
+* Item B : \* Item B  
+* Item C : \* Item C  
+ * Item C-a :  \(space)* Item C-a
+  * Item C-a-1 : \(double space)* Item C-a-1
+
+> Ordered List
+
+1. Item 1 : \1. Item 1
+2. Item 1 : \2. Item 2
+3. Item 1 : \3. Item 3
+
+> Style
+
+_Italic_ :  \_Italic\_  
+**Bold** : \*\*Bold\*\*  
+**_Bold & Italic_** : \*\*\_Bold & Italic\_\*\*  
+horizontal line : \-\-\-  
+# _Italic Header_ : # \_Italic Header\_  
+[**Bold Link**](URL) : \[\*\*Bold Link\*\*\]\(URL\)  
+### [Header Link](URL) : ###\[Header Link\]\(URL\)
+---
+
+> Paragraphs
+
+Two spaces at the end of a line leave a  
+line break.
+
+Insert a new line
+
+to Break lines

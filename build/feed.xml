@@ -1,0 +1,1207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>raw-coder</title>
+    <description>this is the raw-coder's blog</description>
+    <link>https://raw-coder.github.io/</link>
+    <atom:link href="https://raw-coder.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Thu, 10 Jun 2021 23:07:59 +0900</pubDate>
+    <lastBuildDate>Thu, 10 Jun 2021 23:07:59 +0900</lastBuildDate>
+    <generator>Jekyll v4.2.0</generator>
+
+    
+      <item>
+        <title></title>
+        <description>&lt;h2 id=&quot;번역-resilient-distributed-datasets-a-fault-tolerant-abstraction-for-in-memory-cluster-computing&quot;&gt;[번역] Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing&lt;/h2&gt;
+
+&lt;p&gt;RDD 를 세상에 소개한 논문 Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing 을 번역합니다.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&quot;https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf&quot;&gt;논문링크&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;resilient-distributed-datasetsrdds--인메모리-클러스터-컴퓨팅에서-장애-허용을-위한-개념&quot;&gt;Resilient Distributed Datasets(RDDs) : 인메모리 클러스터 컴퓨팅에서 장애 허용을 위한 개념&lt;/h3&gt;
+
+&lt;h4 id=&quot;요약&quot;&gt;요약&lt;/h4&gt;
+&lt;p&gt;We present Resilient Distributed Datasets (RDDs), a distributed
+memory abstraction that lets programmers perform
+in-memory computations on large clusters in a
+fault-tolerant manner
+장애 허용 분산 메모리 개념인 Resilient Distributed Datasets(RDDs)을 소개한다.&lt;/p&gt;
+
+&lt;p&gt;RDDs are motivated by two types
+of applications that current computing frameworks handle
+inefficiently: iterative algorithms and interactive data
+mining tools.
+RDD는 반복적인 알고리즘에 의한 비효율적인 최근의 연산 프레임워크와 인터렉티브한 데이터 마이닝 툴과 관련된 어플리케이션의 영향을 받았다.&lt;/p&gt;
+
+&lt;p&gt;In both cases, keeping data in memory
+can improve performance by an order of magnitude.
+두가지 경우 모두에서, 데이터를 메모리에서 가지고 있는것은 퍼포먼스를 대량으로 향상시켰다.&lt;/p&gt;
+
+&lt;p&gt;To achieve fault tolerance efficiently, RDDs provide a
+restricted form of shared memory, based on coarse-grained
+transformations rather than fine-grained updates
+to shared state.
+장애 허용성을 효율적으로 달성하기 위하여, RDD는 상태에 대한 공유를 위해 상세한 갱신보다 대략적인 변동?에 기반한 공유 메모리에 대한 제한된 양식을 제공한다.&lt;/p&gt;
+
+&lt;p&gt;However, we show that RDDs are expressive
+enough to capture a wide class of computations, including
+recent specialized programming models for iterative
+jobs, such as Pregel, and new applications that these
+models do not capture.&lt;/p&gt;
+
+&lt;p&gt;We have implemented RDDs in a
+system called Spark, which we evaluate through a variety
+of user applications and benchmarks.&lt;/p&gt;
+</description>
+        <pubDate>Thu, 10 Jun 2021 23:07:59 +0900</pubDate>
+        <link>https://raw-coder.github.io/2021/06/10/2018-1-10-rdd-translation/</link>
+        <guid isPermaLink="true">https://raw-coder.github.io/2021/06/10/2018-1-10-rdd-translation/</guid>
+      </item>
+    
+      <item>
+        <title>상반기회고</title>
+        <description>&lt;h1 id=&quot;2019년도-갑작스런-상반기-회고&quot;&gt;2019년도 갑작스런 상반기 회고&lt;/h1&gt;
+
+&lt;p&gt;omg 벌써 2월말… 올들어 세번째 프로젝트를 시작하게 되어 지난 2019년도 1, 2월 회고를 겸해 정리합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;angeltalk-plus&quot;&gt;AngelTalk Plus&lt;/h3&gt;
+
+&lt;p&gt;12월중 ~ 1월말&lt;/p&gt;
+
+&lt;p&gt;2년간 방치되어온 AngelTalk 보수작업.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;최신버전 안드로이드에 대응하기 위해 AngelTalk Plus 라는 새로운 이름의 앱 Google Play 출시&lt;/li&gt;
+  &lt;li&gt;완전한 Open Source 프로젝트를 위해 Github - Slack - Travis 를 중심으로한 협업 체계 정비&lt;/li&gt;
+  &lt;li&gt;그동안 있었던 일 1월 CLD를 통해 팀원들에게 공유&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;멤버&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;이름&lt;/th&gt;
+      &lt;th&gt;Feedback&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Carl&lt;/td&gt;
+      &lt;td&gt;문제해결을 위한 집중력, 진지함, 새로운 것에 대한 호기심과 열정, 멤버들을 살피는 사려깊음, 디자인 스프린트 활동에서 보여준 퍼실 능력, Team 리딩을 위한 소프트 스킬, 유머감각까지 모두 갖춘 개발자. 함께 일할 때 즐겁게 일할 수 있는 좋은 개발자. 개인적으로 페어 개발의 즐거움을 오랜기간 잊었는데, 칼과 함께 개발하면서 Act 온 직후의 즐거움을 다시 떠올릴 수 있어 좋았음.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Jude&lt;/td&gt;
+      &lt;td&gt;같은 프로젝트에 3년이나 같이 있었고, Act에서 다시 만났지만 정작 함께 일한 건 처음인 동기. AngelTalk 과 이 제품을 사용하는 사람들에 대한 애정이 넘치는 모습이 너무나 보기 좋았음. 팀원들이 일할 수 있는 환경을 만들어줌. 엔젤톡 프로젝트를 다시 할 수 있도록 휴벗 및 팀원들을 설득하고 상황을 공유하고 새로운 팀을 조직하는데 제일 큰 역할을 함. 주요 이슈에 대해 신속하게 의사결정을 내려 개발에 전념할 수 있도록 해주었음. 쥬드.. 정말 고맙다.&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Aba&lt;/td&gt;
+      &lt;td&gt;이번 프로젝트를 통해 처음 만난 풀스택 만능 디자이너! 엔젤톡외에 여러가지 맡고 있는 일이 많은 상황에도, 그동안 많은 디자이너 분들의 손을 거쳐 어지럽게 산재된 디자인 리소스들을 시원하고 깔끔하게 정리, 디자인 스프린트에서 나온 엔젤톡 개선 사항 설계, 디자인 개선 작업을 뚝딱뚝딱 열정적으로 해주셔서, 페어였던 칼과 마지막까지 열심히 할 수 있도록 의욕과 에너지를 받을 수 있었음. 개발자 - PM - CX 간 의사소통이 부족하여 지지부진하던 시기, 팀의 위험 신호를 감지하고 유연하게 이를 바로잡는 모습을 보여줌. 프로페셔널.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;기술 관련&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;기술&lt;/th&gt;
+      &lt;th&gt;내용&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Android 개발&lt;/td&gt;
+      &lt;td&gt;이제 3.5 단계는 된 것 같다. 최신 버전 안드로이드에 대응하면서 그동안 나온 여러가지 기술들을 알아보고 일부 AngelTalk Plus 에 적용하는 경험 좋았다. ConstraintLayout 적용, TravisCI를 이용한 CI/CD 환경 구성 경험, 앱 최적화 작업, Google Play에 앱 등록하는 경험 특히 좋았다. 하지만, 패턴 인식 화면 위까지 아이모드 화면을 올리는 방법을 찾지 못한 점은 가장 아쉽다. 새로나온 AAC(Android Architecture Components)는 사용하고 싶었는데 사용하지 못해 아쉽다. unit test 외에 e2e 테스트는 사실상 포기한 점도 아쉽다.&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;&lt;strong&gt;기타 좋았던 점&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Open Source 프로젝트를 만들기 위해, Github Repository 정리, 문서 정비, Slack 을 이용한 협업 체계 정비&lt;/li&gt;
+  &lt;li&gt;1월 CLD 에서 그동안 작업한 내용 정리해서 팀원들에게 공유한 점&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;아쉬운 점&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;안드로이드 개발에 대한 준비가 되어있었다면, 한달 넘게 작업할 내용이었을까 싶다. 프로젝트 초반 안드로이드 개발을 거의 새롭게 시작하는 듯한 느낌을 받았고 너무 헤멨다. 칼에게 매우 큰 부담이 되었을 것 같다.&lt;/li&gt;
+  &lt;li&gt;우리는 정말 사용자에게 가치있는 제품을 만들고 있는가? 라는 질문에 대한 정량적인 답을 찾고 싶다. 그래서 Analytics 기능을 붙여서 분석해보고 싶었는데, 못했다. 공부하고 다음에는 꼭 하자.&lt;/li&gt;
+  &lt;li&gt;이번 엔젤톡 프로젝트와는 상관 없을 수도 있지만, 이제 적어도 한 분야는 Master는 안되더라도 Leading 할 수 있는 분야가 있어야 하지 않을까? Android, Backend, Front, 데이터분석? 내가보기엔 전부다 아직 아마츄어다. 깊이있게 하자. 방향은?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;나의 기술 수준 기준&lt;/strong&gt;&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;기술 수준&lt;/th&gt;
+      &lt;th&gt;내용&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;5&lt;/td&gt;
+      &lt;td&gt;Master - 책 집필, 강의 수준&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;4&lt;/td&gt;
+      &lt;td&gt;Team Leading&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;3&lt;/td&gt;
+      &lt;td&gt;Pair Navigator&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;2&lt;/td&gt;
+      &lt;td&gt;Solo Project&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Novice&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;0&lt;/td&gt;
+      &lt;td&gt;Nothing&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&quot;act-home&quot;&gt;Act Home&lt;/h3&gt;
+&lt;p&gt;2월 설연휴 끝나고 ~ 오늘&lt;/p&gt;
+
+&lt;p&gt;계속…&lt;/p&gt;
+</description>
+        <pubDate>Wed, 20 Feb 2019 00:00:00 +0900</pubDate>
+        <link>https://raw-coder.github.io/2019/02/20/%EC%83%81%EB%B0%98%EA%B8%B0%ED%9A%8C%EA%B3%A0/</link>
+        <guid isPermaLink="true">https://raw-coder.github.io/2019/02/20/%EC%83%81%EB%B0%98%EA%B8%B0%ED%9A%8C%EA%B3%A0/</guid>
+      </item>
+    
+      <item>
+        <title>rabbitMQ docker로 실행하기</title>
+        <description>&lt;h3 id=&quot;rabbitmq-docker로-실행하기&quot;&gt;rabbitMQ docker로 실행하기&lt;/h3&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;docker 설치&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;기존 버전의 docker 설치되어 있는 경우 우선 삭제합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;apt-get remove docker docker-engine docker.io
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;sudo 명령으로 실행하지 않기 위해 권한 등록 후 docker를 실행합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;usermod &lt;span class=&quot;nt&quot;&gt;-aG&lt;/span&gt; docker username
+&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;service docker restart
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+&lt;blockquote&gt;
+  &lt;p&gt;rabbitMQ 설치&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;rabitmq docker image 를 검색합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nb&quot;&gt;sudo &lt;/span&gt;docker search rabbitmq
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;NAME                                           DESCRIPTION                                     STARS               OFFICIAL            AUTOMATED
+rabbitmq                                       RabbitMQ is an open &lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;multi-protocol me…   1855                &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OK]
+tutum/rabbitmq                                 Base docker image to run a RabbitMQ server      15
+frodenas/rabbitmq                              A Docker Image &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;RabbitMQ                     12                                      &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OK]
+bitnami/rabbitmq                               Bitnami Docker Image &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;RabbitMQ               9                                       &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OK]
+sysrun/rpi-rabbitmq                            RabbitMQ Container &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;the Raspberry Pi 2 &lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;b…   6
+kbudde/rabbitmq-exporter                       rabbitmq_exporter &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;prometheus                6                                       &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OK]
+gonkulatorlabs/rabbitmq                        DEPRECATED: See maryville/rabbitmq              5                                       &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OK]
+aweber/rabbitmq-autocluster                    RabbitMQ with the Autocluster Plugin            5
+arm32v7/rabbitmq                               RabbitMQ is an open &lt;span class=&quot;nb&quot;&gt;source &lt;/span&gt;multi-protocol me…   4
+cyrilix/rabbitmq-mqtt                          RabbitMQ MQTT Adapter                           4                                       &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OK]
+mikaelhg/docker-rabbitmq                       RabbitMQ &lt;span class=&quot;k&quot;&gt;in &lt;/span&gt;Docker.                             3                                       &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OK]
+gavinmroy/alpine-rabbitmq-autocluster          Minimal RabbitMQ image with the autocluster …   2
+pivotalrabbitmq/rabbitmq-autocluster           RabbitMQ with the rabbitmq-autocluster plugi…   2
+luiscoms/openshift-rabbitmq                    RabbitMQ docker image to use on Openshift ba…   2                                       &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OK]
+smebberson/alpine-rabbitmq                     A Docker image &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;running RabbitMQ on Alpin…   2                                       &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OK]
+henrylv206/rabbitmq-autocluster                RabbitMQ Cluster                                1                                       &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OK]
+authentise/rabbitmq                            A RabbitMQ image that will run a bash script…   1                                       &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OK]
+cvtjnii/rabbitmq                                                                               1
+pdffiller/rabbitmq                             Rabbitmq 3.7.3 with delayed_message plugin,c…   0
+ekesken/rabbitmq                               docker image &lt;span class=&quot;k&quot;&gt;for &lt;/span&gt;rabbitmq that is configurab…   0                                       &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;OK]
+pivotalrabbitmq/rabbitmq-server-buildenv       Image used to build and &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;RabbitMQ server…   0
+hoist/rabbitmq-cluster                         Hoist&lt;span class=&quot;s1&quot;&gt;'s RabbitMQ Cluster Image                  0                                       [OK]
+cflondonservices/london-services-ci-rabbitmq                                                   0
+callforamerica/rabbitmq                        RabbitMQ (stable) w/ Kubernetes fixes &amp;amp; mani…   0                                       [OK]
+newsdev/rabbitmq                               rabbitmq:olympics Extends official rabbitmq …   0                                       [OK]
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;간단한 설정과 함께 rabbitmq 를 실행합니다.
+username, password, port 등을 설정합니다. management 페이지의  port는 8088로 설정하였습니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;docker run &lt;span class=&quot;nt&quot;&gt;-d&lt;/span&gt; &lt;span class=&quot;nt&quot;&gt;--name&lt;/span&gt; rabbitmq &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 5672:5672 &lt;span class=&quot;nt&quot;&gt;-p&lt;/span&gt; 8088:15672 &lt;span class=&quot;nt&quot;&gt;--restart&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;unless-stopped &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;RABBITMQ_DEFAULT_USER&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;guest &lt;span class=&quot;nt&quot;&gt;-e&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;RABBITMQ_DEFAULT_PASS&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;guest rabbitmq:management
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/rabbitMQ_management.png&quot; alt=&quot;rabbitMQ_management_page&quot; /&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Wed, 04 Apr 2018 00:00:00 +0900</pubDate>
+        <link>https://raw-coder.github.io/2018/04/04/docker-rabbitmq/</link>
+        <guid isPermaLink="true">https://raw-coder.github.io/2018/04/04/docker-rabbitmq/</guid>
+      </item>
+    
+      <item>
+        <title>JavaScript 비동기 처리 정리</title>
+        <description>&lt;h2 id=&quot;javascript-비동기-흐름제어-정리&quot;&gt;javascript 비동기 흐름제어 정리&lt;/h2&gt;
+
+&lt;p&gt;promise, generator function, async - await 를 이용한 비동기 처리 방법을 정리합니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;callback function 을 이용한 비동기처리&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;a.txt&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;utf-8&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;b.txt&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;utf-8&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;c.txt&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;utf-8&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;promise 를 이용한 비동기처리&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;readFilePromise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;utf-8&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;s&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;readFilePromise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;a.txt&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;reading a.txt has finished&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;readFilePromise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;b.txt&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;reading b.txt has finished&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;readFilePromise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;c.txt&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;then&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;reading c.txt has finished&lt;/span&gt;&lt;span class=&quot;se&quot;&gt;\n&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;text&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;generator function 을 이용한 비동기 처리&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;readFileGenerator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;utf-8&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;readFileGenerator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;a.txt&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;readFileGenerator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;b.txt&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;readFileGenerator&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;c.txt&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;})()&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;async - await 를 이용한 비동기 처리&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;readFilePromise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;new&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;Promise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;((&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;reject&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;fs&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;readFile&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;fileName&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;utf-8&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;err&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&amp;gt;&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nx&quot;&gt;resolve&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;data&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;})&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;async&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;readAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;readFilePromise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;a.txt&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;readFilePromise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;b.txt&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;await&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;readFilePromise&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;c.txt&lt;/span&gt;&lt;span class=&quot;dl&quot;&gt;'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;c&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;nx&quot;&gt;readAll&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Wed, 03 Jan 2018 00:00:00 +0900</pubDate>
+        <link>https://raw-coder.github.io/2018/01/03/promise-generator-async-await/</link>
+        <guid isPermaLink="true">https://raw-coder.github.io/2018/01/03/promise-generator-async-await/</guid>
+      </item>
+    
+      <item>
+        <title>Generator 를 활용한 피노나치 수열 예제</title>
+        <description>&lt;h2 id=&quot;es6에-추가된-generator-함수에-대해-간단히-정리합니다&quot;&gt;ES6에 추가된 Generator 함수에 대해 간단히 정리합니다&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;function *&lt;/strong&gt; 키워드로 정의&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;yield&lt;/strong&gt; 구문을 반드시 포함하여햐 함
+    &lt;ul&gt;
+      &lt;li&gt;return 구문과 유사하게 값을 반환&lt;/li&gt;
+      &lt;li&gt;return 구문과 다른 점은 return은 한번만 값을 반환하지만, yield 구문은 여러번 실행됨&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// gernerator 함수 counter 정의&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;2&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;counter&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;g&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;next&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;div class=&quot;language-terminal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;go&quot;&gt;{ value: 1, done: false }
+{ value: 2, done: false }
+{ value: 3, done: false }
+{ value: undefined, done: true }
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;아래 예제는 gernerator를 활용한 피보나치 함수 구현 예제 코드 입니다&lt;/p&gt;
+
+&lt;div class=&quot;language-javascript highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getFibonacci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+  &lt;span class=&quot;kd&quot;&gt;let&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;while&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;+&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;b&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;yield&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;a&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+
+&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fib&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;getFibonacci&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;for&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;of&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;fib&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;gt;&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;50&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;break&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;console&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;log&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;num&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Wed, 03 Jan 2018 00:00:00 +0900</pubDate>
+        <link>https://raw-coder.github.io/2018/01/03/generator-es6/</link>
+        <guid isPermaLink="true">https://raw-coder.github.io/2018/01/03/generator-es6/</guid>
+      </item>
+    
+      <item>
+        <title>Cron 표현식</title>
+        <description>&lt;h2 id=&quot;cron-표현식&quot;&gt;Cron 표현식&lt;/h2&gt;
+&lt;p&gt;Batch Job 개발에 필요했던 Cron 표현식 간단히 정리합니다.&lt;/p&gt;
+
+&lt;div class=&quot;language-terminal highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;gp&quot;&gt;* * * * *       #&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;분&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0-59&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 시&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0-23&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 일&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1-31&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 월&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;1-12&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; 요일&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;0-6&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;gp&quot;&gt;30 6 * * *      #&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;매일 6시 30분
+&lt;span class=&quot;gp&quot;&gt;*/10 * * * *    #&lt;/span&gt;&lt;span class=&quot;w&quot;&gt; &lt;/span&gt;매 10분 마다
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+</description>
+        <pubDate>Tue, 21 Nov 2017 00:00:00 +0900</pubDate>
+        <link>https://raw-coder.github.io/2017/11/21/cron-expression/</link>
+        <guid isPermaLink="true">https://raw-coder.github.io/2017/11/21/cron-expression/</guid>
+      </item>
+    
+      <item>
+        <title>Angeltalk 개발 후기</title>
+        <description>&lt;h2 id=&quot;aac앱-엔젤톡-개발-후기&quot;&gt;AAC앱 엔젤톡 개발 후기&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src=&quot;/assets/img/angeltalk_logo.png&quot; alt=&quot;엔젤톡 로고&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;아래 글은 카카오 스토리 펀딩에 기고하려고 작성한 글입니다.
+매주 1회씩 한달간 총 4회 기고를 하기로 하고 프로젝트에 참여했던 기획자, 디자이너와 글을 나누어 작성하였습니다.
+저는 개발자 시각에서 3화 연재분을 작성하였습니다.&lt;/p&gt;
+
+&lt;p&gt;아쉽게도 연재에는 실패하였지만 제가 작성했던 글은 제 개인 블로그에 남깁니다.&lt;/p&gt;
+
+&lt;h2 id=&quot;들어가며&quot;&gt;들어가며&lt;/h2&gt;
+
+&lt;p&gt;이번 3화는 엔젤톡을 개발하는 동안 겪은 경험과 느낀 점을 개발자 시각에서 이야기하려고 합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;엔젤톡을-함께-개발할-개발자를-찾아요&quot;&gt;“엔젤톡을 함께 개발할 개발자를 찾아요!”&lt;/h3&gt;
+
+&lt;p&gt;2017년 봄, “엔젤톡”이라는 안드로이드 앱을 개발할 개발자를 모집한다는 소식을 듣게 되었습니다.&lt;/p&gt;
+
+&lt;p&gt;엔젤만 증후군 환우들과 부모님에게 의미있는 도움을 줄 수 있는 앱을 만들어보자는 생각에 공감하게 된 사내 많은 분들이 재능기부를 하면서 시작된 프로젝트였습니다.&lt;/p&gt;
+
+&lt;p&gt;평소 안드로이드 앱 개발을 경험해보고 싶었고, 같은 팀에서 함께 일해보고 싶었던 실력있는 개발자들과 디자이너, 기획자들이 모여 엔젤만 증후군 환우들을 위한 앱을 개발한다고 하여 망설임 없이 참여하기로 하였습니다.&lt;/p&gt;
+
+&lt;p&gt;그리고 까다로운 요구사항을 쏟아내는 고객과 관리자, 그리고 촉박하게 정해진 일정과 답답한 업무 시스템으로부터 벗어나 자유롭게 개발할 수 있는 기회이기도 했습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;엔젤만-환우들은-자기가-좋아하고-하고-싶은-것들을-말로-표현할-수-없어요-그들이-세상과-소통하는-것을-돕는-앱을-개발하려고-해요&quot;&gt;“엔젤만 환우들은 자기가 좋아하고 하고 싶은 것들을 말로 표현할 수 없어요. 그들이 세상과 소통하는 것을 돕는 앱을 개발하려고 해요.”&lt;/h3&gt;
+
+&lt;p&gt;엔젤톡 프로젝트에 막 합류한 개발자들에게 기획자가 처음으로 해주신 말씀이었습니다.
+개발을 시작하기에 앞서, 엔젤만 증후군이라는 질환이 어떤 병인지, 엔젤만 환우들은 어떻게 생활하는지 ,그들을 위해 어떤 기능을 가진 앱을 만들어야하는지 구체적으로 설명듣고 알게 되었습니다.&lt;/p&gt;
+
+&lt;p&gt;그때까지 저희가 개발해 오던 모바일 앱 등의 프로그램 대부분은 부가가치(돈)을 만들기 위한 서비스와 관련된 것들이었습니다.&lt;/p&gt;
+
+&lt;p&gt;우리가 만들 앱을 사용할 엔젤만 친구들에 대해 이해하면 할 수록 그들에게 도움이 될 수 있는 가치를 전달할 수 있는 좋은 앱을 만들어야겠다는 책임감과 의욕은 커져만갔습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;저는-119신고도-못해요-블랙리스트에-올랐거든요&quot;&gt;“저는 119신고도 못해요. 블랙리스트에 올랐거든요.”&lt;/h3&gt;
+
+&lt;p&gt;사용자 인터뷰때, 한 어머님이 하신 말씀입니다. 엔젤만 환우들은 스마트폰을 무척 좋아합니다. 좋아하는 유튜브 영상을 보면서 시간을 보내기도 합니다.&lt;/p&gt;
+
+&lt;p&gt;처음에는 엔젤만 환우들이 스마트폰을 사용하는 데 익숙하고 유튜브에서 영상을 찾아보는 것까지 할 수 있다는 사실에, 일반적인 앱을 개발하는 것과 별로 다를것이 없겠다고 생각을 했었습니다.&lt;/p&gt;
+
+&lt;p&gt;그렇지만 자세히 설명을 들어보니, 엔젤만 환우들은 한가지 일에 오랫동안 집중하기 힘들어하기 때문에, 스마트폰의 이것저것 눌러보고, 때로는 홈버튼을 눌러서 유튜브를 종료하고 전화도 걸고 앱도 삭제하는 등 스마트폰을 엉망으로 만들어버리는 경우도 종종 있다는 사실을 알게되었습니다. 긴급전화 기능으로 119에 전화도 여러차례 걸어 블랙리스트가 될 정도라니, 앱 개발 방향을 좀더 생각해보아야 했습니다.&lt;/p&gt;
+
+&lt;p&gt;곧바로 개발자들이 모여 기술 검토를 하였고, 홈버튼으로 앱을 종료할 수 없도록 강제하기 위해, 엔젤톡은 스마트폰의 잠금화면 위에서 동작하는 AAC* 앱으로 개발하기로 하였습니다.
+또한 안드로이드 앱과 iOS용 앱 중 우선 안드로이드 스마트폰용 앱을 개발하는 것으로 의견이 모아졌습니다. 엔젤만 협회를 통해 엔젤만 환우 부모님들을 대상으로 발빠르게 설문조사를 한 결과, 안드로이드 앱 만으로 대부분의 유저(86%)를 만족시킬 수 있는 상황이었기에 가능한 일이었습니다.&lt;/p&gt;
+
+&lt;p&gt;AAC (Augmentative and Alternative Communication) 보완 대체 의사소통 : 말 이외의 다른형태(예: 몸짓, 제스처, 사물, 사진, 그림, 글자 등)로 의사소통(communication)하는 것을 말합니다. 엔젤톡은 사진과 동영상, 부모님의 음성을 이용하여 직접 카드를 만들어 이를 의사소통에 사용하도록 개발하였습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;사용자-검증을-통한-점진적인-기능-개발&quot;&gt;사용자 검증을 통한 점진적인 기능 개발&lt;/h3&gt;
+
+&lt;p&gt;본격적인 개발이 시작되었습니다. 첫번째 스프린트*에서 개발된 엔젤톡 프로토타입은 미리 입력된 사진으로 만든 카드를 스마트폰 잠금화면에 보여주는 기능만을 가지고 있었습니다. 일반적인 스마트폰보다 약간 더 어려운 잠금해제 장치를 마련하였고 이를 해제하지 않으면, 홈버튼을 눌러도 스마트폰 메인화면으로 전환되지 않았고, 통화도 할 수 없도록 막았습니다. 최소한의 기능만을 구현한 앱이었지만, 시연을 통해 좋은 반응을 확인할 수 있었습니다. 여러 AAC 앱들을 사용해왔지만, 그 분들께 꼭 필요한 기능을 처음으로 반영해준 좋은 앱이라는 피드백도 있었습니다&lt;/p&gt;
+
+&lt;p&gt;스프린트(Sprint) : 점진적인 소프트웨어 개발 프로세스에서는 제품의 반복적인 개발주기를 스프린트라고 합니다. 보통 하나의 스프린트 기간안에 제품 기획부터 디자인, 개발, 테스트 및 제품 리뷰를 모두 수행합니다. 엔젤톡은 보통 1~2주 단위로 스프린트를 진행하면서 점진적인 기능을 개발하였습니다. 매 스프린트가 끝날때마다 제품을 시연하고 피드백을 받아 다음 스프린트에 반영하여 점진적으로 개발하였습니다.
+생각했던 것보다 좋은 반응에 개발팀은 자신감을 갖고 개발에 속도를 붙여갔습니다.
+스프린트를 한 차례씩 진행하면서 하나씩 기능을 추가하고 사용성을 개선해 갔습니다. 매번 엔젤만 환우와 부모님들을 만나 사용자 테스트를 했고, 긍정적이든 부정적이든 피드백을 찾아 다음 스프린트에서 개발할 내용에 반영하였습니다. 그렇게 여러차례의 점진적인 개선을 반복한 끝에 엔젤톡 정식 버전을 출시하게 되었습니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;잠금-화면기능-개발&quot;&gt;잠금 화면기능 개발&lt;/h4&gt;
+
+&lt;p&gt;스마트폰의 잠금화면 상에 엔젤톡앱이 구동되도록 할때 고려할 점이 많았습니다. 사용성 측면에서 부보님이 사용하기에 불편함이 없어야했고, 엔젤만 아이들이 사용할때에도 너무 쉽게 잠금이 해제되어 스마트폰 화면에 접근하는 것을 막아야했습니다.&lt;/p&gt;
+
+&lt;p&gt;우선 잠금을 해제하는 기능은 화면에 버튼을 길게 누른 상태(Long Press)에서 일정 영역 밖으로 이동시켜 해제하는 방식을 채택하였습니다.&lt;/p&gt;
+
+&lt;p&gt;잠금화면에 엔젤톡 화면을 켜고 끄는것은 처음에는 위젯*을 통해 조정하도록 개발하였습니다. 그러나 대부분의 부모님들이 위젯을 사용하는 것에 불편함을 느끼거나 혹은 위젯을 어떻게 사용하는지도 모르시는 상태였기 때문에 변경이 불가피했습니다. 여러차례 아이디어 회의를 거쳐 안드로이드 알림(Notification)에 항상 on/off 기능을 조정할 수 있게 버튼을 올려서 문제를 해결할 수 있었습니다.&lt;/p&gt;
+
+&lt;p&gt;[사진] 안드로이드 알림에 구현된 엔젤톡 on/off 기능&lt;/p&gt;
+
+&lt;p&gt;위젯 : 위젯은 홈화면에 실행되는 앱으로 앱의 상태를 간단히 보여주고 사용자가 쉽게 조작할 수 있도록 돕습니다. 달력이나 날씨, 음악앱들을 흔히 위젯으로 많이 개발합니다.&lt;/p&gt;
+
+&lt;h4 id=&quot;사진-카드에서-동영상과-음성을-포함한-카드로&quot;&gt;사진 카드에서 동영상과 음성을 포함한 카드로&lt;/h4&gt;
+
+&lt;p&gt;엔젤톡은 사진과 동영상으로 만들어진 카드를 사용하여 엔젤만 환우들이 커뮤니케이션을 하는 것을 돕는 앱입니다. 인터넷에서 구할 수 있는 좋은 사진이나 잘 만들어진 심볼 이미지로 카드를 만들어도 되었지만, 유저 검증을 통해 실제 엔젤만 환우들이 실제 집이나 학교에서 볼 수 있는 사물을 직접 촬영한 사진이나 동영상으로 카드를 만드는 방향으로 개발이 진행되었습니다.&lt;/p&gt;
+
+&lt;p&gt;이를 위해서는 촬영, 영상녹화, 포커스조절 등의 작업을 카메라가 할 수 있도록 제어하고, 촬영중인 영상 혹은 사진을 미리보기 화면에서 실시간으로 표시하고, 촬영된 영상을 저장하는 기능을 구현해야 했습니다. Google에서 제공하는 Carmera API와 관련된 좋은 오픈 소스 라이브러리*를 사용하여 최초 기능구현은 빠르게 하였으나 문제가 많았습니다. 스마트폰 제조사, 모델별로 지원하는 기능의 종류와 수준이 조금씩 달랐고, 촬영 및 저장되는 이미지 혹은 영상의 해상도, 화면 비율이 일부 모델에서 비정상적으로 처리되는 버그를 해결하는 데 많은 시간을 소요해야 했습니다.&lt;/p&gt;
+
+&lt;p&gt;프로젝트 이후, 회고를 하면서 나온 의견이었는데, 개발자들이 처음부터 카메라 하드웨어 제어와 안드로이드 OS의 그래픽 처리와 관련하여 좀더 로우 레벨에서 접근하여 개발을 시작했으면 어땠을까하는 아쉬움은 남았습니다.&lt;/p&gt;
+
+&lt;p&gt;Camera API (Application Programming Interface) : 앱(응용 프로그램)이 Camera를 제어하고 주요기능을 제어할 수 있도록 Android OS에서 제공하는 기능 오픈소스 소프트웨어 : 저작권자가 소스코드를 공개하여 누구나 특별한 제한 없이 자유롭게 사용, 복제, 배포, 수정할 수 있는 소프트웨어&lt;/p&gt;
+
+&lt;p&gt;라이브러리: 소프트웨어 개발시 사용되는 코드, 데이터, 문서, 도움말 자료 등 여러가지 자원의 모음&lt;/p&gt;
+
+&lt;h3 id=&quot;카드-공유기능&quot;&gt;카드 공유기능&lt;/h3&gt;
+
+&lt;p&gt;엔젤톡에서 만든 카드를 다른 사람과 공유하고 싶다는 피드백을 받았습니다. 어머니가 자녀를 위해 만든 카드를 아버지와 형, 언어치료사 선생님도 같이 사용할 수 있으면 좋을 것 같다는 생각이었습니다.&lt;/p&gt;
+
+&lt;p&gt;우선 엔젤톡 앱에서 만든 카드를 공유하는 것은 SNS와 카카오톡, WhatApp을 사용하여 공유 메세지를 전송하여 공유하는 형태로 개발하였습니다. Google, 카카오, 페이스북은 메신저와 관련된 기능을 편리하게 개발하도록 API를 제공하고 있었기 때문에 엔젤톡에 수월하게 관련 기능을 적용할 수 있었습니다.&lt;/p&gt;
+
+&lt;p&gt;카드는 이미지, 동영상, 음성 파일 정보를 포함하고 있었으므로 대용량 저장소가 필요 했습니다. 그뿐만 아니라, 카트 타입, 카드 이름, 다운로드 경로 등을 포함한 정보를 담기 위해 데이터베이스도 필요하였습니다. 개발자들은 될 수 있으면 관리 포인트의 수를 줄이고 빠르게 개발하기를 원했기 때문에, Google Firebase의 실시간 데이터베이스, 스토리지, Functions 서비스를 사용하여 서버리스 아키텍처*를 적용하기로 하였습니다.
+참여한 개발자 대부분이 Google Firebase 서비스를 사용해 본 경험이 거의 없었기 때문에, 큰 도전이라고 생각했지만, 생각만큼 진입장벽이 높지 않았습니다. 잘 만들어진 구글의 도큐먼트와 레퍼런스의 도움으로 엔젤톡 개발자들의 서버리스 아키텍처 도전기는 성공적으로 결론 지을 수 있었습니다.&lt;/p&gt;
+
+&lt;p&gt;서버리스 아키텍처 : 서버가 없는 아키텍처라는 말이지만, 실제 서버를 만들지 않는 다는 의미는 아니고, Google Firebase, AWS, MS Azure등의 클라우드에 서버를 만들어 관리를 맡기는 방식의 구조입니다. 이를 통해 개발자들은 응용 프로그램을 개발할때, 핵심적인 기능(비즈니스 로직)에만 집중할 수 있게 됩니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;현재의-엔젤톡은&quot;&gt;현재의 엔젤톡은…&lt;/h3&gt;
+
+&lt;p&gt;엔젤톡은 정식버전은 구글 플레이스토어에서 서비스 중입니다. 출시이후 한달까지는 국내 엔젤만 증후군 환우와 부모님, 일부 언어 치료사 선생님을 포함해 약 70여분만 사용하셨습니다. 정식 출시후 약 1년이 지난 현재, 여전히 많은 분들은 아니지만 홍보가 전혀없었음에도 1000명이 넘는 유저가 설치하고 300명이 넘는 사용자들이 활발히 사용중입니다. 영어버전도 초기 출시할때 부터 포함하고 있었기 때문에 타국가에서도 조금씩 설치수가 증가하고 있는 추세입니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;마무리하며&quot;&gt;마무리하며&lt;/h3&gt;
+
+&lt;p&gt;개발자라면 새로운 기술 트렌드에 항상 관심을 가지고 끊임없이 학습해야한다는 압박을 느끼곤 합니다. 그래서 개인 시간을 할애하여 오픈소스 프로젝트에 공헌하거나 개인 프로젝트를 통해 새로운 기술을 경험해보고 지식을 넓혀가야 합니다. 기술 블로그를 운영하면서 본인이 학습한 내용을 정리하고 다른 개발자들로부터 피드백을 받아보는 것도 괜찮은 생각입니다. 시간이 허락한다면, 오프라인 개발 커뮤니티에 나가서 인맥을 넓히고, 관심 있는 분야의 컨퍼런스에 참석하여 새로운 기술 동향 파악에 나설 수도 있습니다.&lt;/p&gt;
+
+&lt;p&gt;쉽지 않은 일입니다. 퇴근 이후의 휴식과 같은 달콤한 유혹을 뿌리치는 것은 두말할 필요없이 힘든일이고, 업무 중에도 반복되는 단순 개발 업무, 소통이 없는 프로젝트 분위기, 누군가 미리 정해 놓은 기술을 사용해야만 하는 환경, 누가 사용할지 알 수도 없는 너무나 많은 기능에 대한 개발이 반복되면서 본인이 처해져있는 환경에 좌절하고 힘들어 하는 경우도 많습니다.
+“오로지 사용자에게 가치있는 앱을 개발하는 것에만 몰입하게 되었던 프로젝트 - &lt;프로젝트 엔젤=&quot;&quot;&gt;&quot;&lt;/프로젝트&gt;&lt;/p&gt;
+
+&lt;p&gt;이번 엔젤톡 프로젝트에 참여하면서 그전과는 다른 새로운 경험을 할 수 있었습니다. 실력있는 개발자, 기획자, 디자이너들과 한 팀으로 협업하고, 오픈 소스 프로젝트 경험을 해보고, 새로운 기술을 시험해 보는 기회도 되었습니다. 하지만 무엇보다 값진 경험은 엔젤만 증후군 환우에게 보다 가치있는 소프트웨어를 개발하기 위해 모두가 몰입하여 고민하는 그 과정이었다고 생각합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;엔젤톡을-함께-개발할-개발자를-찾습니다&quot;&gt;“엔젤톡을 함께 개발할 개발자를 찾습니다!!!”&lt;/h3&gt;
+
+&lt;p&gt;현재 엔젤톡 프로젝트는 사내 프로젝트에서 오픈소스 프로젝트로 전환하여, GitHub* (https://github.com/lab-act/AngelTalk)에 공개되었습니다. 현재 엔젤톡은 동영상 카드 기능이 있는 2.0 버전까지 개발되었습니다. 단순히 일회성으로 개발하고 끝내는 것이아니라, 지속적으로 관심을 갖고 발전시켜 나갈 계획입니다. 엔젤만 증후군을 앓고있는 환우들 뿐만 아니라 의사소통에 어려움을 겪는 환우들이 사용할 수 있는 의사소통보조용 프로그램으로 개선할 예정입니다.&lt;/p&gt;
+
+&lt;p&gt;GitHub : 전세계의 수 천만명의 개발자들이 오픈소스 프로젝트를 공유하고 함께 개발하는 협업의 장입니다.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 19 Nov 2017 00:00:00 +0900</pubDate>
+        <link>https://raw-coder.github.io/2017/11/19/about-angeltalk/</link>
+        <guid isPermaLink="true">https://raw-coder.github.io/2017/11/19/about-angeltalk/</guid>
+      </item>
+    
+      <item>
+        <title>Markdown 정리</title>
+        <description>&lt;h2 id=&quot;markdown&quot;&gt;Markdown&lt;/h2&gt;
+&lt;p&gt;자주 사용하는 Markdown 문법을 정리합니다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Headers&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;헤더는 # 뒤에 문자열을 붙여 나타냅니다. # 갯수에 따라 크기가 결정됩니다. HTML h1 ~ h6 태그와 대응됩니다.&lt;/p&gt;
+&lt;h1 id=&quot;header-one---header-one&quot;&gt;Header One : # Header One&lt;/h1&gt;
+&lt;h2 id=&quot;header-two---header-two&quot;&gt;Header Two : ## Header Two&lt;/h2&gt;
+&lt;h3 id=&quot;header-three---header-three&quot;&gt;Header Three : ### Header Three&lt;/h3&gt;
+&lt;h4 id=&quot;header-four---header-four&quot;&gt;Header Four : #### Header Four&lt;/h4&gt;
+&lt;h5 id=&quot;header-five---header-five&quot;&gt;Header Five : ##### Header Five&lt;/h5&gt;
+&lt;h6 id=&quot;header-six---header-six&quot;&gt;Header Six : ###### Header Six&lt;/h6&gt;
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Link&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;a href=&quot;URL&quot;&gt;Link&lt;/a&gt; : [Link](URL)&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Images&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://octodex.github.com/images/octdrey-catburn.jpg&quot; alt=&quot;alt text&quot; /&gt;
+![alt text](URL)&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Blockquotes&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&amp;gt; Text&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Unordered List&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Item A : * Item A&lt;/li&gt;
+  &lt;li&gt;Item B : * Item B&lt;/li&gt;
+  &lt;li&gt;Item C : * Item C&lt;/li&gt;
+  &lt;li&gt;Item C-a :  (space)* Item C-a&lt;/li&gt;
+  &lt;li&gt;Item C-a-1 : (double space)* Item C-a-1&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Ordered List&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Item 1 : \1. Item 1&lt;/li&gt;
+  &lt;li&gt;Item 1 : \2. Item 2&lt;/li&gt;
+  &lt;li&gt;Item 1 : \3. Item 3&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Style&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;&lt;em&gt;Italic&lt;/em&gt; :  _Italic_&lt;br /&gt;
+&lt;strong&gt;Bold&lt;/strong&gt; : **Bold**&lt;br /&gt;
+&lt;strong&gt;&lt;em&gt;Bold &amp;amp; Italic&lt;/em&gt;&lt;/strong&gt; : **_Bold &amp;amp; Italic_**&lt;br /&gt;
+horizontal line : ---&lt;/p&gt;
+&lt;h1 id=&quot;italic-header---_italic-header_&quot;&gt;&lt;em&gt;Italic Header&lt;/em&gt; : # _Italic Header_&lt;/h1&gt;
+&lt;p&gt;&lt;a href=&quot;URL&quot;&gt;&lt;strong&gt;Bold Link&lt;/strong&gt;&lt;/a&gt; : [**Bold Link**](URL)&lt;/p&gt;
+&lt;h3 id=&quot;header-link--header-linkurl&quot;&gt;&lt;a href=&quot;URL&quot;&gt;Header Link&lt;/a&gt; : ###[Header Link](URL)&lt;/h3&gt;
+&lt;hr /&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Paragraphs&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Two spaces at the end of a line leave a&lt;br /&gt;
+line break.&lt;/p&gt;
+
+&lt;p&gt;Insert a new line&lt;/p&gt;
+
+&lt;p&gt;to Break lines&lt;/p&gt;
+</description>
+        <pubDate>Sun, 19 Nov 2017 00:00:00 +0900</pubDate>
+        <link>https://raw-coder.github.io/2017/11/19/markdown/</link>
+        <guid isPermaLink="true">https://raw-coder.github.io/2017/11/19/markdown/</guid>
+      </item>
+    
+      <item>
+        <title>블로그를 시작하다</title>
+        <description>&lt;h2 id=&quot;블로그를-시작하며&quot;&gt;블로그를 시작하며&lt;/h2&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;나는 좀더 많은 사람들의 삶에 도움을 주는 사람이 되고 싶었다. 그래서 개발자가 되기로 결심했다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;개발자로서 커리어를 시작하기 전, 나는 어느 대기업 부설 생산기술연구소의 연구원이었다.&lt;/p&gt;
+
+&lt;p&gt;거대한 공장의 생산관리 혹은 일정관리와 관련된 몇 가지 시스템의 새로운 기능을 제안하고, 만들고, 개선하는 일을 했다. 연구 제안을 하고, 하청을 주고 프로토타입 시스템을 만들어보고(감독하고), 좋은 효과가 있었음을 논문을 쓰거나 자료를 작성하여 증명하는 일을 하는 사람들 중에 하나였다.&lt;/p&gt;
+
+&lt;p&gt;좋은 회사였고 의미있는 일이었지만, 난 솔직히 좀 재미없었다. 내가 하고 있는 일은 좁은 시각으로 보자면, 사무실에 앉아서 생산계획을 수립하고, 노동자들에게 업무지시를 하는 관리자 몇 명을 위한 일이었다. 난 좀더 많은 사람들의 삶에 도움을 줄 수 있는 일이 하고 싶어졌다.&lt;/p&gt;
+
+&lt;p&gt;그래서 30살이 넘어 퇴사를 했다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;세상이 학교 다닐때처럼 녹록하지는 않았지만, 그래도 개발자는 될 수 있었다. 운이 좋았다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;대책도 없이 잘 다니던 좋은 회사를 그만두고 고생도 많이 했다.&lt;/p&gt;
+
+&lt;p&gt;몇 달 쉬면서 여행도 다니고, 어학공부도 하면서 가고 싶었던 회사에 입사원서를 몇 군데 넣으면 이직이 쉽게 될 지 알았지만, 그렇지 않았다.&lt;/p&gt;
+
+&lt;p&gt;참 오래동안 취뽀와 영어학원을 전전한 끝에 간신히 개발자는 될 수 있었다.&lt;/p&gt;
+
+&lt;p&gt;사실 운이 좋았다. 개발자가 되려는 컴퓨터 전공자들은 다 기피한다는 악성 대형 SI 프로젝트들이 수많은 신입 개발자들을 블랙홀처럼 빨아들이고 있었다. 내가 입사한 그 회사는 그해 신입 개발자로 300명 이상을 채용했다. 그중에 나도 하나였다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;첫 프로젝트는 엉망이었지만, 나는 그저 감사하기만 했다. 그리고 열심히 했다.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;개발자로서 나의 커리어의 첫 줄을 장식하게 된 프로젝트는 국가의 세금과 관련된 시스템을 대대적으로 새롭게(!) 만드는 초대형 SI 프로젝트였다.&lt;/p&gt;
+
+&lt;p&gt;공공 SI 프로젝트에 처음 투입된 초보 개발자는 문서로 정의된 비즈니스 로직(주로 단순 CRUD)을 구현하고 물량을 뽑아내는 역할을 하게 되는데, 나는 그중 하나였다.&lt;/p&gt;
+
+&lt;p&gt;사용할 수 있는 기술은 이미 정해져있었고, 수많은 가이드 문서가 코드의 자유를 옥죄어 오는 환경이었다. 닭장 같은 사무실에 앉아 하루종일 비슷한 화면을 찍어내야하는 일이었지만, 나는 초보 개발자였다. 모든 것이 새로웠고 하루하루 배우고 새로운 경험을 하는 일이 반복되었다. 물론 두, 세달 정도 지나니 반복작업, 노가다가 시작되긴 했었다.&lt;/p&gt;
+
+&lt;p&gt;그럼에도 불구하고, 나 정도의 일천한 경험과 실력을 가진 초보 개발자가 개발자로서 커리어를 시작할 수 있음에 감사하면서 나는 3년 가까운 프로젝트 투입 기간동안 정말 열심히 개발(컨트롤 + C, V)했다.&lt;/p&gt;
+
+&lt;p&gt;열심히 배워서 다음 프로젝트에서는 더 잘하고 싶었다. 더 좋은 코드를 작성하고 싶었다.&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;블로그를 시작하자.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;첫 프로젝트를 마치고, 본사에 복귀하여 4개 정도의 프로젝트를 경험하고, 이제 경력 4년을 가진 개발자가 되었다.&lt;/p&gt;
+
+&lt;p&gt;연말이 되어 나 자신을 되돌아 보게 되면서 생각했다. 슬프지만 난 여전히 초보 개발자를 벗어나지 못했다.&lt;/p&gt;
+
+&lt;p&gt;생각없이 열심히만 하지 말자. 야매는 싫다. 정말 잘하고 싶다고 생각했다.&lt;/p&gt;
+
+&lt;p&gt;그리고 결심했다!&lt;/p&gt;
+
+&lt;p&gt;조금씩 나아지는 모습을 만들자. 그래서 블로그를 시작하게 된다.&lt;/p&gt;
+</description>
+        <pubDate>Sun, 19 Nov 2017 00:00:00 +0900</pubDate>
+        <link>https://raw-coder.github.io/2017/11/19/hello-blog/</link>
+        <guid isPermaLink="true">https://raw-coder.github.io/2017/11/19/hello-blog/</guid>
+      </item>
+    
+
+    
+      
+        
+      
+    
+      
+    
+      
+        
+          <item>
+            <title></title>
+            <description>&lt;h3&gt;  {{ page.title }} &lt;/h3&gt;
+
+&lt;div id=&quot;categories&quot;&gt;
+{% for category in site.categories %}
+  &lt;div class=&quot;category-box&quot; &gt;
+    {% capture category_name %}{{ category | first }}{% endcapture %}
+    &lt;div id=&quot;#{{ category_name | slugize }}&quot;&gt;&lt;/div&gt;
+    &lt;h4 class=&quot;category-head&quot;&gt;&lt;a href=&quot;{{ site.baseurl }}/blog/categories/{{ category_name }}&quot;&gt;{{ category_name }}&lt;/a&gt;&lt;/h4&gt;
+    &lt;a name=&quot;{{ category_name | slugize }}&quot;&gt;&lt;/a&gt;
+     {% for post in site.categories[category_name] %}
+    &lt;article class=&quot;center&quot;&gt;
+      &lt;h6 &gt;&lt;a href=&quot;{{ site.baseurl }}{{ post.url }}&quot;&gt;{{post.title}}&lt;/a&gt;&lt;/h6&gt;
+    &lt;/article&gt;
+
+
+    {% endfor %}
+
+  &lt;/div&gt;
+{% endfor %}
+&lt;/div&gt;
+
+
+</description>
+            <link>https://raw-coder.github.io/blog/categories/</link>
+          </item>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <item>
+            <title>Guides</title>
+            <description>&lt;h5&gt; Posts by Category : {{ page.title }} &lt;/h5&gt;
+
+&lt;div class=&quot;card&quot;&gt;
+{% for post in site.categories.guides %}
+ &lt;li class=&quot;category-posts&quot;&gt;&lt;span&gt;{{ post.date | date_to_string }}&lt;/span&gt; &amp;nbsp; &lt;a href=&quot;{{ post.url }}&quot;&gt;{{ post.title }}&lt;/a&gt;&lt;/li&gt;
+{% endfor %}
+&lt;/div&gt;</description>
+            <link>https://raw-coder.github.io/blog/categories/guides/</link>
+          </item>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+        
+          <item>
+            <title>Get Started</title>
+            <description>## Getting Started - How to use “devlopr-jekyll” theme
+
+## What's Jekyll ?
+
+If you aren’t familiar with Jekyll yet, you should know that it is a static site generator. It will transform your plain text into static websites and blogs. No more databases, slow loading websites, risk of being hacked…just your content. And not only that, with Jekyll you get free hosting with GitHub Pages! If you are a beginner we recommend you start with [Jekyll’s Docs](https://jekyllrb.com/docs/installation/). Now, if you know how to use Jekyll, let’s move on to using this theme in Jekyll:
+
+## Watch Tutorial
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/cXBEfpn0qrg?rel=0&amp;amp;controls=0&amp;amp;showinfo=0&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+
+### Steps to create your blog using devlopr-jekyll and Host using Github Pages :
+
+&gt;  **Step 1.**  Fork the repo - [click here](https://github.com/sujaykundu777/devlopr-jekyll/fork)
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork1.png){:class=&quot;img-fluid&quot;}
+
+&gt; **Step 2.** Use **your-github-username.github.io** as the new repo  ( Replace your-github-username with yours). Remember if you use the name other than your-github-username.github.io , your blog will be built using gh-pages branch.
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork2.png){:class=&quot;img-fluid&quot;}
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork3.png){:class=&quot;img-fluid&quot;}
+
+&gt; **Step 3.** Clone the new repo locally to make changes :
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork31.png){:class=&quot;img-fluid&quot;}
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork32.png){:class=&quot;img-fluid&quot;}
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork33.png){:class=&quot;img-fluid&quot;}
+
+```bash
+ $ git clone https://github.com/yourusername/yourusername.github.io
+ $ cd yourusername.github.io
+ $ code .
+```
+
+&gt; **Step 4.** Open the files using VSCode and edit _config.yml and edit with your details:
+
+- _config.yml file - replace with your own details
+- _posts - Add your blog posts here
+- _includes - You can replace the contents of the files with your data. (contains widgets)
+- _assets/img - Add all your images here
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork34.png){:class=&quot;img-fluid&quot;}
+
+&gt; **Step 5** - Install the development requirements:
+
+### Set up local development environment
+
+1. [Git](https://git-scm.com/)
+2. [Ruby](https://www.ruby-lang.org/) and [Bundler](https://bundler.io/)
+3. [VSCode](https://code.visualstudio.com/download)
+
+We need ruby and bundler to build our site locally. After installation check if its working:
+
+For ruby :
+
+```bash
+$ ruby -v
+ruby 2.5.1p57 (2018-03-29 revision 63029) [x86_64-linux-gnu]
+```
+For bundler :
+
+```bash
+$ gem install bundler
+$ bundler -v
+Bundler version 2.2.6
+```
+Add jekyll :
+
+```bash
+$ bundle add jekyll
+```
+ This command will add the Jekyll gem to our Gemfile and install it to the ./vendor/bundle/ folder.
+
+You can check the jekyll version
+
+```
+$ bundle exec jekyll -v
+jekyll 4.2.0
+```
+
+&gt; **Step 6.** Install the gem dependencies by running the following command
+
+```bash
+$ bundle update
+$ bundle install
+```
+
+&gt; **Step 7.** Serve the site locally by running the following command below:
+
+```bash
+$ bundle exec jekyll serve --watch
+```
+or you can also serve using :
+
+```bash
+$ jekyll serve
+```
+
+Visit [http://localhost:4000](http://localhost:4000) for development server
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork4.png){:class=&quot;img-fluid&quot;}
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork41.png){:class=&quot;img-fluid&quot;}
+
+### Adding Content
+
+Start populating your blog by adding your .md files in _posts. devlopr-jekyll already has a few examples.
+
+#### YAML Post Example:
+
+```yml
+---
+layout: post
+title: Sample Post
+author: Sujay Kundu
+date: '2019-05-21 14:35:23 +0530'
+category:
+        - jekyll
+summary: This is the summary for the sample post
+thumbnail: sample.png
+---
+
+Hi ! This is sample post.
+
+```
+
+#### YAML Page Example:
+
+```yml
+---
+layout: page
+title: Sample Page
+menus: header
+permalink: /sample-page/
+---
+
+Hi ! This is sample page.
+```
+
+#### Editing stylesheet
+
+You’ll only work with a single file to edit/add theme style: assets/css/main.scss.
+
+### Deploy your Changes
+
+Once happy with your blog changes. Push your changes to master branch.
+
+&gt; **Step 8.** Push Your Local Changes
+
+```bash
+ $ git add .
+ $ git commit -m &quot;my new blog using devlopr-jekyll&quot;
+ $ git push origin master
+```
+
+Visit your Github Repo settings ! Enable master branch as Github Pages Branch :
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork6.png){:class=&quot;img-fluid&quot;}
+
+&gt; **Step 9.** Deploy your Blog :
+
+![Devlopr Jekyll Repo](/assets/img/posts/fork7.png){:class=&quot;img-fluid&quot;}
+
+&gt; Congrats ! On your new shining Blog !
+
+You can visit the blog using [http://your-github-username.github.io](http://your-github-username.github.io).
+
+</description>
+            <link>https://raw-coder.github.io/get-started/</link>
+          </item>
+        
+      
+    
+      
+        
+          <item>
+            <title>Jekyll</title>
+            <description>&lt;h5&gt; Posts by Category : {{ page.title }} &lt;/h5&gt;
+
+&lt;div class=&quot;card&quot;&gt;
+{% for post in site.categories.jekyll %}
+ &lt;li class=&quot;category-posts&quot;&gt;&lt;span&gt;{{ post.date | date_to_string }}&lt;/span&gt; &amp;nbsp; &lt;a href=&quot;{{ post.url }}&quot;&gt;{{ post.title }}&lt;/a&gt;&lt;/li&gt;
+{% endfor %}
+&lt;/div&gt;</description>
+            <link>https://raw-coder.github.io/blog/categories/jekyll/</link>
+          </item>
+        
+      
+    
+      
+    
+      
+    
+      
+        
+          <item>
+            <title>Guides</title>
+            <description>&lt;h5&gt; Posts by Category : {{ page.title }} &lt;/h5&gt;
+
+&lt;div class=&quot;card&quot;&gt;
+{% for post in site.categories.sample_category %}
+ &lt;li class=&quot;category-posts&quot;&gt;&lt;span&gt;{{ post.date | date_to_string }}&lt;/span&gt; &amp;nbsp; &lt;a href=&quot;{{ post.url }}&quot;&gt;{{ post.title }}&lt;/a&gt;&lt;/li&gt;
+{% endfor %}
+&lt;/div&gt;</description>
+            <link>https://raw-coder.github.io/blog/categories/sample_category/</link>
+          </item>
+        
+      
+    
+      
+    
+      
+        
+          <item>
+            <title>Our Sponsors</title>
+            <description>Thanks to all the amazing contributors and our Backers for the support.
+
+- [Dirish Mohan](https://dirishmohan.com)</description>
+            <link>https://raw-coder.github.io/sponsors/</link>
+          </item>
+        
+      
+    
+      
+        
+          <item>
+            <title>Styleguide</title>
+            <description>### devlopr - Styleguide
+
+&lt;hr /&gt;
+
+ &lt;img src=&quot;/assets/img/styleguide.png&quot; class=&quot;img-fluid&quot;&gt;
+
+&lt;p&gt; Lets try the different text styles  &lt;b&gt; Bold &lt;/b&gt; , &lt;strong&gt; Strong &lt;/strong&gt;, &lt;em&gt; Emphasis &lt;/em&gt;, &lt;i&gt; Italic &lt;/i&gt; &lt;/p&gt;
+
+
+&lt;p&gt; Now, lets try different heading styles : &lt;/p&gt;
+
+&lt;h1&gt; Hello in h1 ! &lt;/h1&gt;
+&lt;h2&gt; Hello in h2 ! &lt;/h2&gt;
+&lt;h3&gt; Hello in h3 ! &lt;/h3&gt;
+&lt;h4&gt; Hello in h4 ! &lt;/h4&gt;
+&lt;h5&gt; Hello in h5 ! &lt;/h5&gt;
+&lt;h6&gt; Hello in h6 ! &lt;/h6&gt;
+
+&lt;hr /&gt;
+&lt;p&gt; Unordered List &lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt; List Item 1 &lt;/li&gt;
+&lt;li&gt; List Item 2 &lt;/li&gt;
+&lt;li&gt; List Item 3 &lt;/li&gt;
+&lt;li&gt; List Item 4 &lt;/li&gt;
+&lt;li&gt; List Item 5 &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt; Ordered List &lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt; List Item 1 &lt;/li&gt;
+&lt;li&gt; List Item 2 &lt;/li&gt;
+&lt;li&gt; List Item 3 &lt;/li&gt;
+&lt;li&gt; List Item 4 &lt;/li&gt;
+&lt;li&gt; List Item 5 &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;This is a Block Quote,  It can Expand Multiple Lines &lt;/p&gt;
+
+&lt;/blockquote&gt;
+
+&lt;p&gt;You can use the mark tag to &lt;mark&gt;highlight&lt;/mark&gt; text. &lt;/p&gt;
+
+&lt;p&gt;&lt;del&gt; This line of text is meant to be deleted text &lt;/del&gt; &lt;/p&gt;
+
+&lt;p&gt;&lt;u&gt;This line of text will render as underlined&lt;/u&gt;&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;This line of text is meant to be treated as fine print.&lt;/small&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;This line rendered as bold text.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;This line rendered as italicized text.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;abbr title=&quot;attribute&quot;&gt;attr&lt;/abbr&gt;&lt;/p&gt;
+&lt;p&gt;&lt;abbr title=&quot;HyperText Markup Language&quot; class=&quot;initialism&quot;&gt;HTML&lt;/abbr&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;div class=&quot;responsive-table&quot;&gt;
+&lt;table&gt;
+      &lt;thead&gt;
+        &lt;tr&gt;
+          &lt;th scope=&quot;col&quot;&gt;#&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+          &lt;th scope=&quot;col&quot;&gt;Heading&lt;/th&gt;
+        &lt;/tr&gt;
+      &lt;/thead&gt;
+      &lt;tbody&gt;
+        &lt;tr&gt;
+          &lt;th scope=&quot;row&quot;&gt;1&lt;/th&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th scope=&quot;row&quot;&gt;2&lt;/th&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;tr&gt;
+          &lt;th scope=&quot;row&quot;&gt;3&lt;/th&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+          &lt;td&gt;Cell&lt;/td&gt;
+        &lt;/tr&gt;
+      &lt;/tbody&gt;
+    &lt;/table&gt;
+    &lt;/div&gt;
+
+&lt;hr /&gt;
+
+&lt;h3&gt; Instagram Embed &lt;/h3&gt;
+
+&lt;blockquote class=&quot;instagram-media&quot; data-instgrm-captioned data-instgrm-permalink=&quot;https://www.instagram.com/p/CBXO7AypXkM/?utm_source=ig_embed&amp;amp;utm_campaign=loading&quot; data-instgrm-version=&quot;13&quot; style=&quot; background:#FFF; border:0; border-radius:3px; box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15); margin: 1px; max-width:540px; min-width:326px; padding:0; width:99.375%; width:-webkit-calc(100% - 2px); width:calc(100% - 2px);&quot;&gt;&lt;div style=&quot;padding:16px;&quot;&gt; &lt;a href=&quot;https://www.instagram.com/p/CBXO7AypXkM/?utm_source=ig_embed&amp;amp;utm_campaign=loading&quot; style=&quot; background:#FFFFFF; line-height:0; padding:0 0; text-align:center; text-decoration:none; width:100%;&quot; target=&quot;_blank&quot;&gt; &lt;div style=&quot; display: flex; flex-direction: row; align-items: center;&quot;&gt; &lt;div style=&quot;background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 40px; margin-right: 14px; width: 40px;&quot;&gt;&lt;/div&gt; &lt;div style=&quot;display: flex; flex-direction: column; flex-grow: 1; justify-content: center;&quot;&gt; &lt;div style=&quot; background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 100px;&quot;&gt;&lt;/div&gt; &lt;div style=&quot; background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 60px;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;padding: 19% 0;&quot;&gt;&lt;/div&gt; &lt;div style=&quot;display:block; height:50px; margin:0 auto 12px; width:50px;&quot;&gt;&lt;svg width=&quot;50px&quot; height=&quot;50px&quot; viewBox=&quot;0 0 60 60&quot; version=&quot;1.1&quot; xmlns=&quot;https://www.w3.org/2000/svg&quot; xmlns:xlink=&quot;https://www.w3.org/1999/xlink&quot;&gt;&lt;g stroke=&quot;none&quot; stroke-width=&quot;1&quot; fill=&quot;none&quot; fill-rule=&quot;evenodd&quot;&gt;&lt;g transform=&quot;translate(-511.000000, -20.000000)&quot; fill=&quot;#000000&quot;&gt;&lt;g&gt;&lt;path d=&quot;M556.869,30.41 C554.814,30.41 553.148,32.076 553.148,34.131 C553.148,36.186 554.814,37.852 556.869,37.852 C558.924,37.852 560.59,36.186 560.59,34.131 C560.59,32.076 558.924,30.41 556.869,30.41 M541,60.657 C535.114,60.657 530.342,55.887 530.342,50 C530.342,44.114 535.114,39.342 541,39.342 C546.887,39.342 551.658,44.114 551.658,50 C551.658,55.887 546.887,60.657 541,60.657 M541,33.886 C532.1,33.886 524.886,41.1 524.886,50 C524.886,58.899 532.1,66.113 541,66.113 C549.9,66.113 557.115,58.899 557.115,50 C557.115,41.1 549.9,33.886 541,33.886 M565.378,62.101 C565.244,65.022 564.756,66.606 564.346,67.663 C563.803,69.06 563.154,70.057 562.106,71.106 C561.058,72.155 560.06,72.803 558.662,73.347 C557.607,73.757 556.021,74.244 553.102,74.378 C549.944,74.521 548.997,74.552 541,74.552 C533.003,74.552 532.056,74.521 528.898,74.378 C525.979,74.244 524.393,73.757 523.338,73.347 C521.94,72.803 520.942,72.155 519.894,71.106 C518.846,70.057 518.197,69.06 517.654,67.663 C517.244,66.606 516.755,65.022 516.623,62.101 C516.479,58.943 516.448,57.996 516.448,50 C516.448,42.003 516.479,41.056 516.623,37.899 C516.755,34.978 517.244,33.391 517.654,32.338 C518.197,30.938 518.846,29.942 519.894,28.894 C520.942,27.846 521.94,27.196 523.338,26.654 C524.393,26.244 525.979,25.756 528.898,25.623 C532.057,25.479 533.004,25.448 541,25.448 C548.997,25.448 549.943,25.479 553.102,25.623 C556.021,25.756 557.607,26.244 558.662,26.654 C560.06,27.196 561.058,27.846 562.106,28.894 C563.154,29.942 563.803,30.938 564.346,32.338 C564.756,33.391 565.244,34.978 565.378,37.899 C565.522,41.056 565.552,42.003 565.552,50 C565.552,57.996 565.522,58.943 565.378,62.101 M570.82,37.631 C570.674,34.438 570.167,32.258 569.425,30.349 C568.659,28.377 567.633,26.702 565.965,25.035 C564.297,23.368 562.623,22.342 560.652,21.575 C558.743,20.834 556.562,20.326 553.369,20.18 C550.169,20.033 549.148,20 541,20 C532.853,20 531.831,20.033 528.631,20.18 C525.438,20.326 523.257,20.834 521.349,21.575 C519.376,22.342 517.703,23.368 516.035,25.035 C514.368,26.702 513.342,28.377 512.574,30.349 C511.834,32.258 511.326,34.438 511.181,37.631 C511.035,40.831 511,41.851 511,50 C511,58.147 511.035,59.17 511.181,62.369 C511.326,65.562 511.834,67.743 512.574,69.651 C513.342,71.625 514.368,73.296 516.035,74.965 C517.703,76.634 519.376,77.658 521.349,78.425 C523.257,79.167 525.438,79.673 528.631,79.82 C531.831,79.965 532.853,80.001 541,80.001 C549.148,80.001 550.169,79.965 553.369,79.82 C556.562,79.673 558.743,79.167 560.652,78.425 C562.623,77.658 564.297,76.634 565.965,74.965 C567.633,73.296 568.659,71.625 569.425,69.651 C570.167,67.743 570.674,65.562 570.82,62.369 C570.966,59.17 571,58.147 571,50 C571,41.851 570.966,40.831 570.82,37.631&quot;&gt;&lt;/path&gt;&lt;/g&gt;&lt;/g&gt;&lt;/g&gt;&lt;/svg&gt;&lt;/div&gt;&lt;div style=&quot;padding-top: 8px;&quot;&gt; &lt;div style=&quot; color:#3897f0; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:550; line-height:18px;&quot;&gt; View this post on Instagram&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;padding: 12.5% 0;&quot;&gt;&lt;/div&gt; &lt;div style=&quot;display: flex; flex-direction: row; margin-bottom: 14px; align-items: center;&quot;&gt;&lt;div&gt; &lt;div style=&quot;background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(0px) translateY(7px);&quot;&gt;&lt;/div&gt; &lt;div style=&quot;background-color: #F4F4F4; height: 12.5px; transform: rotate(-45deg) translateX(3px) translateY(1px); width: 12.5px; flex-grow: 0; margin-right: 14px; margin-left: 2px;&quot;&gt;&lt;/div&gt; &lt;div style=&quot;background-color: #F4F4F4; border-radius: 50%; height: 12.5px; width: 12.5px; transform: translateX(9px) translateY(-18px);&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;margin-left: 8px;&quot;&gt; &lt;div style=&quot; background-color: #F4F4F4; border-radius: 50%; flex-grow: 0; height: 20px; width: 20px;&quot;&gt;&lt;/div&gt; &lt;div style=&quot; width: 0; height: 0; border-top: 2px solid transparent; border-left: 6px solid #f4f4f4; border-bottom: 2px solid transparent; transform: translateX(16px) translateY(-4px) rotate(30deg)&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;div style=&quot;margin-left: auto;&quot;&gt; &lt;div style=&quot; width: 0px; border-top: 8px solid #F4F4F4; border-right: 8px solid transparent; transform: translateY(16px);&quot;&gt;&lt;/div&gt; &lt;div style=&quot; background-color: #F4F4F4; flex-grow: 0; height: 12px; width: 16px; transform: translateY(-4px);&quot;&gt;&lt;/div&gt; &lt;div style=&quot; width: 0; height: 0; border-top: 8px solid #F4F4F4; border-left: 8px solid transparent; transform: translateY(-4px) translateX(8px);&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/div&gt; &lt;div style=&quot;display: flex; flex-direction: column; flex-grow: 1; justify-content: center; margin-bottom: 24px;&quot;&gt; &lt;div style=&quot; background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; margin-bottom: 6px; width: 224px;&quot;&gt;&lt;/div&gt; &lt;div style=&quot; background-color: #F4F4F4; border-radius: 4px; flex-grow: 0; height: 14px; width: 144px;&quot;&gt;&lt;/div&gt;&lt;/div&gt;&lt;/a&gt;&lt;p style=&quot; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; line-height:17px; margin-bottom:0; margin-top:8px; overflow:hidden; padding:8px 0 7px; text-align:center; text-overflow:ellipsis; white-space:nowrap;&quot;&gt;&lt;a href=&quot;https://www.instagram.com/p/CBXO7AypXkM/?utm_source=ig_embed&amp;amp;utm_campaign=loading&quot; style=&quot; color:#c9c8cd; font-family:Arial,sans-serif; font-size:14px; font-style:normal; font-weight:normal; line-height:17px; text-decoration:none;&quot; target=&quot;_blank&quot;&gt;A post shared by Sujay (@sujaykundu777)&lt;/a&gt;&lt;/p&gt;&lt;/div&gt;&lt;/blockquote&gt; &lt;script async src=&quot;//www.instagram.com/embed.js&quot;&gt;&lt;/script&gt;
+
+&lt;hr&gt;
+
+&lt;h3&gt; Twitter Embed &lt;/h3&gt;
+
+&lt;blockquote class=&quot;twitter-tweet&quot; data-lang=&quot;en&quot;&gt;&lt;p lang=&quot;en&quot; dir=&quot;ltr&quot;&gt;I just published “Deploying a blog using Jekyll and Github Pages with SSL certificate for Free” &lt;a href=&quot;https://t.co/B3T3IQVU93&quot;&gt;https://t.co/B3T3IQVU93&lt;/a&gt;&lt;/p&gt;&amp;mdash; Sujay Kundu (@SujayKundu777) &lt;a href=&quot;https://twitter.com/SujayKundu777/status/1012601950469160962?ref_src=twsrc%5Etfw&quot;&gt;June 29, 2018&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&quot;https://platform.twitter.com/widgets.js&quot; charset=&quot;utf-8&quot;&gt;&lt;/script&gt;
+
+&lt;hr /&gt;
+
+
+&lt;h3&gt;YouTube Responsive Embed&lt;/h3&gt;
+
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/bBpKMH3nBzE?rel=0&amp;amp;controls=0&amp;amp;showinfo=0&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;hr /&gt;
+
+&lt;h3&gt;Vimeo Responsive Embed&lt;/h3&gt;
+
+&lt;iframe src=&quot;https://player.vimeo.com/video/212114694?title=0&amp;amp;byline=0&amp;amp;portrait=0&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; webkitallowfullscreen=&quot;&quot; mozallowfullscreen=&quot;&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;ted-responsive-embed&quot;&gt;TED Responsive Embed&lt;/h3&gt;
+
+&lt;iframe src=&quot;https://embed.ted.com/talks/ted_halstead_a_climate_solution_where_all_sides_can_win&quot; width=&quot;640&quot; height=&quot;360&quot; frameborder=&quot;0&quot; scrolling=&quot;no&quot; allowfullscreen=&quot;&quot;&gt;&lt;/iframe&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;twitch-responsive-embed&quot;&gt;Twitch Responsive Embed&lt;/h3&gt;
+
+&lt;iframe src=&quot;https://player.twitch.tv/?autoplay=false&amp;amp;video=v248755437&quot; frameborder=&quot;0&quot; allowfullscreen=&quot;true&quot; scrolling=&quot;no&quot; height=&quot;378&quot; width=&quot;620&quot;&gt;&lt;/iframe&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;soundcloud-embed&quot;&gt;SoundCloud Embed&lt;/h3&gt;
+
+&lt;iframe width=&quot;100%&quot; height=&quot;166&quot; scrolling=&quot;no&quot; frameborder=&quot;no&quot; src=&quot;https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/29738591&amp;amp;color=ff5500&amp;amp;auto_play=false&amp;amp;hide_related=false&amp;amp;show_comments=true&amp;amp;show_user=true&amp;amp;show_reposts=false&quot;&gt;&lt;/iframe&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;codepen-embed&quot;&gt;CodePen Embed&lt;/h3&gt;
+
+&lt;p data-height=&quot;265&quot; data-theme-id=&quot;light&quot; data-slug-hash=&quot;YWvpRo&quot; data-default-tab=&quot;css,result&quot; data-user=&quot;kharrop&quot; data-embed-version=&quot;2&quot; data-pen-title=&quot;Referral Form&quot; class=&quot;codepen&quot;&gt;&lt;/p&gt;
+&lt;script async=&quot;&quot; src=&quot;https://production-assets.codepen.io/assets/embed/ei.js&quot;&gt;&lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;syntax-highlighting&quot;&gt;Syntax Highlighting&lt;/h3&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-js&quot; data-lang=&quot;js&quot;&gt;&lt;span class=&quot;s1&quot;&gt;'use strict'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;markdown&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;require&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'markdown'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;markdown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;Editor&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;preview&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;update&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;preview&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;innerHTML&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;markdown&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;toHTML&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;value&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;};&lt;/span&gt;
+  &lt;span class=&quot;nx&quot;&gt;input&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;editor&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;update&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;();&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;You can add inline code just like this, E.g. &lt;code class=&quot;highlighter-rouge&quot;&gt;.code { color: #fff; }&lt;/code&gt;&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-css&quot; data-lang=&quot;css&quot;&gt;&lt;span class=&quot;nt&quot;&gt;pre&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;background-color&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;#f4f4f4&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;max-width&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;m&quot;&gt;100%&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;nl&quot;&gt;overflow&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;auto&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;github-gist-embed&quot;&gt;GitHub gist Embed&lt;/h3&gt;
+
+&lt;script src=&quot;https://gist.github.com/ahmadajmi/dbb4f713317721668bcbc39420562afc.js&quot;&gt;&lt;/script&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;input-style&quot;&gt;Input Style&lt;/h3&gt;
+
+&lt;p&gt;&lt;input type=&quot;text&quot; placeholder=&quot;I'm an input field!&quot; /&gt;&lt;/p&gt;
+
+&lt;hr /&gt;
+
+
+</description>
+            <link>https://raw-coder.github.io/styleguide/</link>
+          </item>
+        
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+
+  </channel>
+</rss>
