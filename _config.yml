@@ -24,11 +24,11 @@ urls:
 
 author_logo: my-profile.png
 author: raw-coder
-author_bio: Hi, my name is John Doe. I built this site using devlopr-jekyll :D
+author_bio: Hi, my name is Young-yun Jeong.
 author_email: "rawww.coder@gmail.com"
 author_location: Seoul, Korea
 author_website_url: "https://raw-coder.github.io"
-typewrite-text: devlopr is a jekyll framework built for developers. You can edit this in _config.yml file
+typewrite-text: 
 
 # Experiences
 author_work_experiences:
@@ -109,8 +109,8 @@ show_author_education_details: true
 show_author_project_details: true
 
 # pagination of posts
-paginate: 4
-per_page: 4
+paginate: 8
+per_page: 8
 paginate_path: "/blog/page/:num/"
 
 # minify

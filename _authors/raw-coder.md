@@ -2,7 +2,7 @@
 name: raw-coder
 username: raw-coder
 bio: "풀스택 지향 웹 개발자"
-site: https://raw-coder.com
+site: https://raw-coder.github.io
 avatar: my-profile.png
 email: rawww.coder@gmail.com
 social:

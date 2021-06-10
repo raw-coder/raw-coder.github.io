@@ -5,57 +5,63 @@
     <description>this is the raw-coder's blog</description>
     <link>https://raw-coder.github.io/</link>
     <atom:link href="https://raw-coder.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 10 Jun 2021 23:07:59 +0900</pubDate>
-    <lastBuildDate>Thu, 10 Jun 2021 23:07:59 +0900</lastBuildDate>
+    <pubDate>Fri, 11 Jun 2021 01:37:07 +0900</pubDate>
+    <lastBuildDate>Fri, 11 Jun 2021 01:37:07 +0900</lastBuildDate>
     <generator>Jekyll v4.2.0</generator>
 
     
       <item>
-        <title></title>
-        <description>&lt;h2 id=&quot;번역-resilient-distributed-datasets-a-fault-tolerant-abstraction-for-in-memory-cluster-computing&quot;&gt;[번역] Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing&lt;/h2&gt;
+        <title>[리뷰] 파이썬으로 배우는 포트폴리오</title>
+        <description>&lt;h1 id=&quot;파이썬으로-배우는-포트폴리오-리뷰&quot;&gt;파이썬으로 배우는 포트폴리오 리뷰&lt;/h1&gt;
 
-&lt;p&gt;RDD 를 세상에 소개한 논문 Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing 을 번역합니다.&lt;/p&gt;
+&lt;h3 id=&quot;들어가며&quot;&gt;들어가며…&lt;/h3&gt;
 
-&lt;p&gt;&lt;a href=&quot;https://www.usenix.org/system/files/conference/nsdi12/nsdi12-final138.pdf&quot;&gt;논문링크&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;파이썬으로 배우는 포트폴리오[곽승주 저, 길벗출판사]&lt;/strong&gt; 라는 책을 읽어보았습니다.&lt;/p&gt;
 
-&lt;h3 id=&quot;resilient-distributed-datasetsrdds--인메모리-클러스터-컴퓨팅에서-장애-허용을-위한-개념&quot;&gt;Resilient Distributed Datasets(RDDs) : 인메모리 클러스터 컴퓨팅에서 장애 허용을 위한 개념&lt;/h3&gt;
+&lt;p&gt;개인적으로 파이썬이 아주 익숙하지 않지만 간단한 웹 크롤러를 개발해 본적이 있고, 데이터 사이언스를 공부하면서 파이썬 라이브러리들을 잠깐 사용해 본 경험이 있었고, 무엇보다 사회생활을 시작한 이후 계속해온 주식투자자로서 관심가는 아주 흥미로운 책이었습니다.&lt;/p&gt;
 
-&lt;h4 id=&quot;요약&quot;&gt;요약&lt;/h4&gt;
-&lt;p&gt;We present Resilient Distributed Datasets (RDDs), a distributed
-memory abstraction that lets programmers perform
-in-memory computations on large clusters in a
-fault-tolerant manner
-장애 허용 분산 메모리 개념인 Resilient Distributed Datasets(RDDs)을 소개한다.&lt;/p&gt;
+&lt;h3 id=&quot;구성은&quot;&gt;구성은…&lt;/h3&gt;
 
-&lt;p&gt;RDDs are motivated by two types
-of applications that current computing frameworks handle
-inefficiently: iterative algorithms and interactive data
-mining tools.
-RDD는 반복적인 알고리즘에 의한 비효율적인 최근의 연산 프레임워크와 인터렉티브한 데이터 마이닝 툴과 관련된 어플리케이션의 영향을 받았다.&lt;/p&gt;
+&lt;p&gt;총 8장으로 구성되어있고, 부록을 제외하고 약 300페이지 정도의 이론과 실습 코드를 포함한 내용으로 일주일 정도면 가볍게 읽어 볼 수 있는 분량이었습니다.&lt;/p&gt;
 
-&lt;p&gt;In both cases, keeping data in memory
-can improve performance by an order of magnitude.
-두가지 경우 모두에서, 데이터를 메모리에서 가지고 있는것은 퍼포먼스를 대량으로 향상시켰다.&lt;/p&gt;
+&lt;p&gt;(모든 실습 코드를 실행해보면서 읽는 다면 시간이 조금더 걸리겠지만요…)&lt;/p&gt;
 
-&lt;p&gt;To achieve fault tolerance efficiently, RDDs provide a
-restricted form of shared memory, based on coarse-grained
-transformations rather than fine-grained updates
-to shared state.
-장애 허용성을 효율적으로 달성하기 위하여, RDD는 상태에 대한 공유를 위해 상세한 갱신보다 대략적인 변동?에 기반한 공유 메모리에 대한 제한된 양식을 제공한다.&lt;/p&gt;
+&lt;p&gt;전반 적인 구성은 다음과 같습니다.&lt;/p&gt;
 
-&lt;p&gt;However, we show that RDDs are expressive
-enough to capture a wide class of computations, including
-recent specialized programming models for iterative
-jobs, such as Pregel, and new applications that these
-models do not capture.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;파이썬 기본 문법에 대한 소개(1장)&lt;/li&gt;
+  &lt;li&gt;포트폴리오 이론을 위한 기본 지식(1장, 2장)&lt;/li&gt;
+  &lt;li&gt;다양한 포트폴리오 이론과 파이썬을 통한 실습(3장 ~ 6장)&lt;/li&gt;
+  &lt;li&gt;머신러닝 맛보기(7장)&lt;/li&gt;
+  &lt;li&gt;Yahoo_fin 패키지를 통한 재무 데이터 실습(8장)&lt;/li&gt;
+  &lt;li&gt;파이썬 라이브러리 소개(부록)&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;We have implemented RDDs in a
-system called Spark, which we evaluate through a variety
-of user applications and benchmarks.&lt;/p&gt;
+&lt;h3 id=&quot;좋았던-점은&quot;&gt;좋았던 점은…&lt;/h3&gt;
+
+&lt;p&gt;파이썬 언어와 pandas, numpy, matplotlib 등의 라이브러리를 사용한 실습 코드를 모든 챕터에서 제공하고 간단히 따라해볼 수 있었던 점은 좋았습니다.&lt;/p&gt;
+
+&lt;p&gt;포트폴리오 이론은 생소했었지만, 배경 이론에 대해 담백하고, 이해하기 쉬운 언어로 설명했기때문에 받아들이는 데 어려움은 없었습니다.&lt;/p&gt;
+
+&lt;p&gt;(포트폴리오 이론을 설명하는데 필요한 수식이 적지 않았지만, 최대한 간단히 설명하기 위해 글쓴이가 노력한 것 같다는 인상을 받았습니다.)&lt;/p&gt;
+
+&lt;p&gt;개인적으로는 8장의 실습내용이 흥미로웠고, 재무 데이터를 이용해 간단한 포트폴리오 관리 앱을 만들고 싶었는데, 도움이 될 것으로 생각합니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;아쉬웠던-점은&quot;&gt;아쉬웠던 점은…&lt;/h3&gt;
+
+&lt;p&gt;7장 금융 산업과 머신러닝에 대한 내용은 사실 조금 읽다가 스킵했습니다. 맛보기 정도의 내용이라 차라리 좀더 상세한 내용으로 다른 책으로 공부하는 게 낫다는 생각이 들었습니다.&lt;/p&gt;
+
+&lt;p&gt;간단한 포트폴리오 관리 서비스나 앱을 개발하는 실습을 챕터 하나를 더 할애해서 구성했으면 더 좋지 않았을까하는 아쉬움은 있습니다.&lt;/p&gt;
+
+&lt;h3 id=&quot;정리하면&quot;&gt;정리하면…&lt;/h3&gt;
+
+&lt;p&gt;포트폴리오 이론을 배워서, 감이나 소문을 듣고 투자하는 것이 아니라 자산배분하고 이론에 입각해 투자하고 싶은 개발자들은 읽어보면 좋을 책인것 같습니다.&lt;/p&gt;
+
+&lt;p&gt;개인적으로는 포트폴리오 관리 앱을 개발하는데 많은 도움이 될 것으로 보입니다.&lt;/p&gt;
 </description>
-        <pubDate>Thu, 10 Jun 2021 23:07:59 +0900</pubDate>
-        <link>https://raw-coder.github.io/2021/06/10/2018-1-10-rdd-translation/</link>
-        <guid isPermaLink="true">https://raw-coder.github.io/2021/06/10/2018-1-10-rdd-translation/</guid>
+        <pubDate>Thu, 10 Jun 2021 00:00:00 +0900</pubDate>
+        <link>https://raw-coder.github.io/blog/review-portfolio-with-phython/</link>
+        <guid isPermaLink="true">https://raw-coder.github.io/blog/review-portfolio-with-phython/</guid>
       </item>
     
       <item>
@@ -684,8 +690,8 @@ line break.&lt;/p&gt;
 &lt;p&gt;조금씩 나아지는 모습을 만들자. 그래서 블로그를 시작하게 된다.&lt;/p&gt;
 </description>
         <pubDate>Sun, 19 Nov 2017 00:00:00 +0900</pubDate>
-        <link>https://raw-coder.github.io/2017/11/19/hello-blog/</link>
-        <guid isPermaLink="true">https://raw-coder.github.io/2017/11/19/hello-blog/</guid>
+        <link>https://raw-coder.github.io/blog/hello-blog/</link>
+        <guid isPermaLink="true">https://raw-coder.github.io/blog/hello-blog/</guid>
       </item>
     
 
@@ -1192,8 +1198,6 @@ You can visit the blog using [http://your-github-username.github.io](http://your
             <link>https://raw-coder.github.io/styleguide/</link>
           </item>
         
-      
-    
       
     
       

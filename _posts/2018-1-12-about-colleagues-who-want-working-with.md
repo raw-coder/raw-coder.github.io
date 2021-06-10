@@ -1,7 +1,7 @@
 ---
 layout: post
 current: post
-cover: #assets/img/javascript.png
+thumbnail: assets/img/javascript.png
 navigation: True
 title:
 date: 2018-1-12
