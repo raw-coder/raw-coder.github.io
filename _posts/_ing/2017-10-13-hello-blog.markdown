@@ -5,6 +5,7 @@ author: "Steve"
 avatar: "img/authors/Steve.png"
 image: ""
 date:   2017-06-27 12:12:12
+published: false
 ---
 
 # 야매 개발자 블로그를 시작한다 #

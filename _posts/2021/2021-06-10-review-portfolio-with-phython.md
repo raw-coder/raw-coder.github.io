@@ -6,9 +6,10 @@ author: raw-coder
 date: 2021-06-10 00:00:00 +0900
 category: books, phython, investment
 thumbnail: /assets/img/portfolio-with-python.jpg
-keywords: books, phython, investment
+keywords: books, python, investment
 permalink: /blog/review-portfolio-with-phython/
 usemathjax: false
+published: true
 ---
 # 파이썬으로 배우는 포트폴리오 리뷰
 
