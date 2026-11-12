@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Raw Coder: Games</title>
+<meta name="description" content="Small original iPhone games and apps by Raw Coder, with trailers and App Store links.">
+<style>
+  :root {
+    --bg: #f6f3ee; --card: #ffffff; --ink: #1d1b18; --muted: #6b655c; --line: #e6e0d6;
+    --accent: #1f6f5c; --accent-ink: #ffffff; --chip: #efe9df; --soon: #a0611b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #141312; --card: #1e1c1a; --ink: #f1ede6; --muted: #a39b8f; --line: #2e2b27;
+      --accent: #4fb89b; --accent-ink: #0d1a16; --chip: #2a2723; --soon: #e0a45c;
+    }
+  }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: var(--bg); color: var(--ink);
+    font: 16px/1.5 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 48px 16px 64px; }
+  header h1 { font-size: clamp(32px, 6vw, 48px); line-height: 1.1; margin: 0 0 8px; letter-spacing: -0.02em; }
+  header p { color: var(--muted); margin: 0; max-width: 560px; }
+  .grid { display: grid; gap: 20px; margin-top: 40px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); }
+  .card { background: var(--card); border: 1px solid var(--line); border-radius: 18px;
+    overflow: hidden; display: flex; flex-direction: column; }
+  .poster { display: block; position: relative; aspect-ratio: 16/9; background: var(--chip) center/cover no-repeat; }
+  .poster::after { content: ""; position: absolute; left: 50%; top: 50%; width: 56px; height: 56px;
+    margin: -28px 0 0 -28px; border-radius: 50%; background: rgba(0,0,0,.55)
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath fill='white' d='M9 6.5v11l9-5.5z'/%3E%3C/svg%3E") center/28px no-repeat; }
+  .body { padding: 18px; display: flex; flex-direction: column; gap: 12px; flex: 1; }
+  .head { display: flex; gap: 14px; align-items: center; }
+  .head img { width: 64px; height: 64px; border-radius: 15px; flex: none; border: 1px solid var(--line); }
+  .head h2 { font-size: 19px; margin: 0; line-height: 1.25; }
+  .head .sub { color: var(--muted); font-size: 14px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag { font-size: 12px; padding: 2px 9px; border-radius: 99px; background: var(--chip); color: var(--muted); }
+  .tag.soon { color: var(--soon); }
+  .links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: auto; }
+  .btn { font-size: 14px; font-weight: 600; text-decoration: none; padding: 8px 14px; border-radius: 10px;
+    border: 1px solid var(--line); color: var(--ink); }
+  .btn:hover { border-color: var(--muted); }
+  .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  .btn.off { color: var(--muted); pointer-events: none; }
+  footer { margin-top: 48px; color: var(--muted); font-size: 14px; }
+  footer a { color: inherit; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>Raw Coder</h1>
+    <p>Small original games and apps for iPhone and iPad. No ads, everything drawn and synthesized in code.</p>
+  </header>
+  <main class="grid" id="grid"></main>
+  <footer>Each app has its own privacy policy and support page, linked on its card.</footer>
+</div>
+
+<script>
+const P = "https://raw-coder.github.io/";
+const games = [
+  { id: 6833439569, name: "Desk Derby", sub: "Tabletop soccer with friends", icon: "desk-derby",
+    tags: ["Sports", "Online"], poster: P + "deskderby/trailer/poster-16x9.jpg",
+    trailer: P + "deskderby/trailer/", page: P + "deskderby/" },
+  { id: 6833028373, store: "ro", name: "Masa Verde", sub: "Tabinet, Șeptică, Macao, Rentz – online", icon: "masa-verde",
+    tags: ["Cards", "Romanian"], poster: P + "masa-verde/trailer/poster.jpg",
+    trailer: P + "masa-verde/trailer/", page: P + "masa-verde/" },
+  { id: 6832628454, store: "ro", name: "Micii Cuceritori", sub: "Cucerește județele cu ce știi", icon: "micii-cuceritori",
+    tags: ["Trivia", "Romanian"], poster: P + "micii-cuceritori/trailer/poster.jpg",
+    trailer: P + "micii-cuceritori/trailer/", page: P + "micii-cuceritori/" },
+  { id: 6833000106, name: "Pip Roll", sub: "Tap to flap, roll & bounce", icon: "pip-roll",
+    tags: ["Platformer", "30 levels"], trailer: "https://youtu.be/pEbzCBUhdWw", page: P + "pip-roll/" },
+  { id: 6832547180, name: "Brick Pocket", sub: "Retro handheld 9999 in 1", icon: "brick-pocket",
+    tags: ["Retro", "Arcade"], trailer: "https://www.youtube.com/shorts/tDYYPoOndFI", page: P + "brick-pocket/" },
+  { id: 6833429803, name: "Linogram", sub: "Colour picture puzzles for beginners", icon: "linogram",
+    tags: ["Puzzle", "Nonogram"], trailer: P + "linogram/demo.mp4", page: P + "linogram/" },
+  { id: 6832535189, name: "Lumo Deep", sub: "Glowing pearl puzzles", icon: "lumo-deep",
+    tags: ["Puzzle"], page: P + "lumo-deep/" },
+  { id: 6832487424, store: "ro", name: "Infinity Residence", sub: "Stack the endless block", icon: "infinity-residence",
+    tags: ["Casual", "Romanian"], page: P + "infinity-residence/" },
+  { id: 6833018812, name: "Meltaway", sub: "Visual timer, ADHD friendly", icon: "meltaway",
+    tags: ["App", "Productivity"], trailer: P + "meltaway/demo.mp4", page: P + "meltaway/" },
+];
+
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const storeUrl = g => `https://apps.apple.com/${g.store ? g.store + "/" : ""}app/id${g.id}`;
+
+document.getElementById("grid").innerHTML = games.map(g => `
+  <article class="card" id="app-${g.id}">
+    ${g.poster ? `<a class="poster" href="${g.trailer}" style="background-image:url('${g.poster}')" aria-label="Watch the ${esc(g.name)} trailer"></a>` : ""}
+    <div class="body">
+      <div class="head">
+        <img src="icons/${g.icon}.jpg" alt="" loading="lazy">
+        <div><h2>${esc(g.name)}</h2><div class="sub">${esc(g.sub)}</div></div>
+      </div>
+      <div class="tags">${g.tags.map(t => `<span class="tag">${esc(t)}</span>`).join("")}<span class="tag soon" hidden>Coming soon</span></div>
+      <div class="links">
+        <a class="btn primary store" href="${storeUrl(g)}">App Store</a>
+        ${g.trailer ? `<a class="btn" href="${g.trailer}">▶ Trailer</a>` : ""}
+        <a class="btn" href="${g.page}">Support & privacy</a>
+      </div>
+    </div>
+  </article>`).join("");
+
+// Apps still in review have no store page yet: ask the public iTunes lookup which ones are live.
+function markLive(data) {
+  const live = new Set((data.results || []).map(r => r.trackId));
+  for (const g of games) {
+    if (live.has(g.id)) continue;
+    const card = document.getElementById("app-" + g.id);
+    const btn = card.querySelector(".store");
+    btn.classList.remove("primary"); btn.classList.add("off"); btn.textContent = "App Store soon";
+    card.querySelector(".tag.soon").hidden = false;
+  }
+}
+function lookup(country, ids) {
+  return new Promise(resolve => {
+    const cb = "cb_" + country;
+    window[cb] = d => { resolve(d.results || []); delete window[cb]; };
+    const s = document.createElement("script");
+    s.src = `https://itunes.apple.com/lookup?id=${ids.join(",")}&country=${country}&callback=${cb}`;
+    s.onerror = () => resolve(null);
+    document.head.appendChild(s);
+  });
+}
+Promise.all([
+  lookup("us", games.filter(g => !g.store).map(g => g.id)),
+  lookup("ro", games.filter(g => g.store).map(g => g.id)),
+]).then(([a, b]) => { if (a && b) markLive({ results: a.concat(b) }); });
+</script>
+</body>
+</html>
